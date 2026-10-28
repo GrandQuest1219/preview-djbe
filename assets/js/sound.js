@@ -10,13 +10,18 @@ window.LPSound = (function () {
     // v8 追加（ElevenLabs）：すごろくのGET・30秒OK／配管ラインのゴール／診断結果／進み具合の一言
     get: 'assets/sound/get.mp3', goal: 'assets/sound/goal.mp3', reveal: 'assets/sound/reveal.mp3', bubble: 'assets/sound/bubble.mp3'
   };
-  var ctx = null, on = false, buffers = {};
+  var ctx = null, on = false, buffers = {}, bus = null;
 
   function ensure() {
     if (ctx) return ctx;
     var AC = window.AudioContext || window.webkitAudioContext;
     if (!AC) return null;
     ctx = new AC();
+    // すべての音をここに通す：キンキンする高い音域をやわらかく削り、全体の音量も少し下げる
+    var soft = ctx.createBiquadFilter(); soft.type = 'lowpass'; soft.frequency.value = 5200; soft.Q.value = 0.5;
+    var master = ctx.createGain(); master.gain.value = 0.75;
+    soft.connect(master); master.connect(ctx.destination);
+    bus = soft;
     Object.keys(FILES).forEach(function (k) {
       fetch(FILES[k]).then(function (r) { if (!r.ok) throw 0; return r.arrayBuffer(); })
         .then(function (b) { return ctx.decodeAudioData(b); })
@@ -27,9 +32,10 @@ window.LPSound = (function () {
   }
 
   // 生成した音源は長めなので、頭の無音を飛ばして先頭だけを短くフェードアウトして鳴らす
-  var MAX_LEN = { drop: 0.5, sw: 0.6, pop: 0.35, get: 0.5, goal: 0.85, reveal: 0.7, bubble: 0.3 };
-  // 音源ごとの元の音量差をそろえる（ピークがおよそ0.4になるように）
-  var VOL = { drop: 0.5, sw: 0.5, pop: 0.35, get: 0.45, goal: 0.45, reveal: 0.85, bubble: 0.9 };
+  // get / goal / reveal / bubble は「耳障り」とのご意見を受けて、やわらかい音に作り直したもの
+  var MAX_LEN = { drop: 0.5, sw: 0.6, pop: 0.35, get: 0.8, goal: 1.1, reveal: 0.8, bubble: 0.35 };
+  // 音源ごとの元の音量差をそろえる（ピークがおよそ0.3になるように）
+  var VOL = { drop: 0.45, sw: 0.45, pop: 0.3, get: 2.3, goal: 1.3, reveal: 0.6, bubble: 1.1 };
   var offsets = {};
   function leadOffset(buf) {
     var d = buf.getChannelData(0), th = 0.02;
@@ -41,10 +47,12 @@ window.LPSound = (function () {
     var len = MAX_LEN[name] || 0.5, t = ctx.currentTime;
     var s = ctx.createBufferSource(); var g = ctx.createGain();
     s.buffer = buf;
-    g.gain.setValueAtTime(vol, t);
-    g.gain.setValueAtTime(vol, t + len * 0.6);
+    // 立ち上がりを15msかけてふわっと出す（いきなり鳴る「カチッ」を防ぐ）
+    g.gain.setValueAtTime(0.0001, t);
+    g.gain.exponentialRampToValueAtTime(vol, t + 0.015);
+    g.gain.setValueAtTime(vol, t + len * 0.55);
     g.gain.exponentialRampToValueAtTime(0.0001, t + len);
-    s.connect(g); g.connect(ctx.destination);
+    s.connect(g); g.connect(bus);
     s.start(t, offsets[name], len + 0.05);
   }
 
@@ -58,7 +66,7 @@ window.LPSound = (function () {
     g.gain.setValueAtTime(0.0001, t);
     g.gain.exponentialRampToValueAtTime(vol, t + 0.008);
     g.gain.exponentialRampToValueAtTime(0.0001, t + 0.22);
-    o.connect(g); g.connect(ctx.destination); o.start(t); o.stop(t + 0.25);
+    o.connect(g); g.connect(bus); o.start(t); o.stop(t + 0.25);
   }
 
   function play(name) {

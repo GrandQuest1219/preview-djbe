@@ -151,10 +151,10 @@ details.msg-more[open] .job__toggle i::after { transform: none; }
 /* ---------- D4 配管ラインのゴール ---------- */
 .pgoal { position: absolute; z-index: 6; left: 0; top: 0; display: flex; flex-direction: column; align-items: center; gap: 6px; text-decoration: none; transform: translate(-50%, -50%) scale(0); transition: transform .7s cubic-bezier(.34, 1.7, .64, 1); pointer-events: none; }
 .pgoal.is-goal { transform: translate(-50%, -50%) scale(1); pointer-events: auto; }
-.pgoal.is-left { transform: translate(-12px, -50%) scale(0); align-items: flex-start; }
-.pgoal.is-left.is-goal { transform: translate(-12px, -50%) scale(1); }
-.pgoal.is-right { transform: translate(calc(-100% + 12px), -50%) scale(0); align-items: flex-end; }
-.pgoal.is-right.is-goal { transform: translate(calc(-100% + 12px), -50%) scale(1); }
+.pgoal.is-left { transform: translate(4px, -50%) scale(0); align-items: flex-start; }
+.pgoal.is-left.is-goal { transform: translate(4px, -50%) scale(1); }
+.pgoal.is-right { transform: translate(calc(-100% - 4px), -50%) scale(0); align-items: flex-end; }
+.pgoal.is-right.is-goal { transform: translate(calc(-100% - 4px), -50%) scale(1); }
 .pgoal__ring { position: absolute; top: 50%; width: 24px; height: 24px; margin-top: 4px; border-radius: 50%; border: 3px solid var(--aqua-2); opacity: 0; }
 .pgoal.is-left .pgoal__ring { left: 0; } .pgoal.is-right .pgoal__ring { right: 0; }
 .pgoal.is-goal .pgoal__ring { animation: gring 2s ease-out .4s infinite; }

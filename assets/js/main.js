@@ -39,13 +39,13 @@
     var on = Sound.toggle();
     soundBtn.classList.toggle('is-on', on);
     soundBtn.setAttribute('aria-pressed', on ? 'true' : 'false');
-    soundBtn.querySelector('.sound__label').textContent = on ? 'SOUND ON' : 'SOUND';
+    soundBtn.querySelector('.sound__label').textContent = on ? 'SOUND ON' : 'SOUND OFF';
     track('sound_toggle', { state: on ? 'on' : 'off' });
   });
-  // クリックした場所に波紋＋水滴音
+  // クリックした場所に波紋＋水滴音（音はボタンやリンクを押したときだけ。画面のどこを触っても鳴ると耳障りなため）
   document.addEventListener('pointerdown', function (e) {
     if (e.pointerType === 'mouse' && e.button !== 0) return;
-    Sound.play('drop');
+    if (e.target.closest && e.target.closest('a, button, summary, input, label') && !e.target.closest('.sound')) Sound.play('drop');
     if (reduceMotion || !hasGsap) return;
     var r = document.createElement('span');
     r.className = 'ripple'; r.style.left = e.clientX + 'px'; r.style.top = e.clientY + 'px';
@@ -180,6 +180,16 @@
   gsap.set('.hero__badge', { opacity: 0, scale: .6 });
   gsap.set('.hero__photo', { opacity: 0, scale: .92 });
   var tl = gsap.timeline({ delay: .2, onStart: ready });
+  // 安全策：4秒たっても演出が始まらないとき（通信が遅い・端末が演出を止めた等）は、演出なしで全部表示する
+  // （「始まった」扱いになっても途中で止まることがあるので、最初の文章が実際に見えているかで判断する）
+  setTimeout(function () {
+    var lead = document.querySelector('.hero__lead');
+    if (lead && parseFloat(getComputedStyle(lead).opacity) > 0.5) return;
+    tl.kill();
+    root.classList.remove('js-anim');
+    gsap.set('.rv, .rv-mask, .hero__sticker, .hero__badge, .hero__photo', { clearProps: 'all' });
+    ready();
+  }, 4000);
   tl.to('.loader', { opacity: 0, duration: .5 })
     .to('.hero__copy .rv-mask', { clipPath: 'inset(0 0 0% 0)', duration: 1, ease: 'expo.out', stagger: .12 }, '-=.1')
     .to('.hero__photo', { opacity: 1, scale: 1, duration: 1.4, ease: 'expo.out' }, '<.1')
