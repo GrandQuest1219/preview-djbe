@@ -71,11 +71,27 @@ window.LPSound = (function () {
     else synthDrop(900, 0.08);
   }
 
+  // iPhoneは「消音モード」だとWeb Audioの音が出ない。SOUNDを自分でONにした人には、
+  // 音楽アプリと同じ扱い（playback）にして消音モードでも鳴らす（iOS 16.4以降のSafari）
+  function unlock() {
+    try { if (navigator.audioSession) navigator.audioSession.type = 'playback'; } catch (e) {}
+    if (!ctx) return;
+    if (ctx.state !== 'running') ctx.resume();
+    // タップした瞬間に無音を1回鳴らして、スマホの再生制限を解除しておく
+    var b = ctx.createBuffer(1, 1, 22050), s = ctx.createBufferSource();
+    s.buffer = b; s.connect(ctx.destination); s.start(0);
+  }
+
   function toggle(force) {
     on = typeof force === 'boolean' ? force : !on;
-    if (on) { ensure(); if (ctx && ctx.state === 'suspended') ctx.resume(); play('sw'); }
+    if (on) { ensure(); unlock(); play('sw'); }
     return on;
   }
+
+  // 画面を切り替えて戻ったときなどに止まっていたら、次のタップで再開する
+  document.addEventListener('pointerdown', function () {
+    if (on && ctx && ctx.state !== 'running') unlock();
+  }, { passive: true });
 
   return { play: play, toggle: toggle, isOn: function () { return on; } };
 })();

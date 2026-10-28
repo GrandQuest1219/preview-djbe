@@ -21,12 +21,15 @@
 @media (max-width: 767px) { .header .sound { top: auto; right: auto; } .sound__label { display: none; } }
 .burger { position: relative; width: 56px; height: 56px; border: 0; border-radius: 50%; background: var(--ink); color: #fff; cursor: pointer; transition: background-color .3s; z-index: 2; }
 .burger:hover { background: var(--navy); }
-.burger i { position: absolute; left: 18px; right: 18px; height: 2px; background: currentColor; border-radius: 2px; transition: transform .5s var(--ease), top .5s var(--ease); }
-.burger i:nth-child(1) { top: 23px; }
-.burger i:nth-child(2) { top: 31px; }
+.burger i { position: absolute; left: 18px; right: 18px; height: 2px; background: currentColor; border-radius: 2px; transition: transform .5s var(--ease), top .5s var(--ease), opacity .3s; }
+/* v8: 3本線のハンバーガー（開くと上下の線で×、真ん中は消える） */
+.burger i:nth-child(1) { top: 20px; }
+.burger i:nth-child(2) { top: 27px; }
+.burger i:nth-child(3) { top: 34px; }
 .burger__t { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
 .is-menu .burger i:nth-child(1) { top: 27px; transform: rotate(45deg); }
-.is-menu .burger i:nth-child(2) { top: 27px; transform: rotate(-45deg); }
+.is-menu .burger i:nth-child(2) { opacity: 0; transform: scaleX(.2); }
+.is-menu .burger i:nth-child(3) { top: 27px; transform: rotate(-45deg); }
 
 /* メニュー（全画面） */
 .menu { position: fixed; inset: 0; z-index: 55; visibility: hidden; transition: visibility 0s .8s; }
