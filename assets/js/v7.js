@@ -195,3 +195,24 @@
     if (window.ScrollTrigger) window.ScrollTrigger.refresh();
   });
 })();
+
+// 仕事の流れ：見えたら01から順に点けていく
+(function () {
+  var steps = [].slice.call(document.querySelectorAll('.wstep'));
+  if (!steps.length) return;
+  var Sound = window.LPSound || { play: function () {} };
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) {
+    steps.forEach(function (s) { s.classList.add('is-on'); });
+    return;
+  }
+  var io = new IntersectionObserver(function (es) {
+    es.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      io.disconnect();
+      steps.forEach(function (s, i) {
+        setTimeout(function () { s.classList.add('is-on'); if (i === steps.length - 1) Sound.play('pop'); }, 200 * i);
+      });
+    });
+  }, { rootMargin: '0px 0px -30% 0px' });
+  io.observe(document.querySelector('.wflow'));
+})();
