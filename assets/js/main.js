@@ -263,7 +263,33 @@
   var main = document.querySelector('main');
   var pipe = document.querySelector('.pipe');
   var pBg = pipe.querySelector('.pipe__bg'), pFg = pipe.querySelector('.pipe__fg'), head = pipe.querySelector('.pipe__head');
-  var samples = [], total = 0;
+  // 配管らしく見せるパーツ：外側の管・水の流れ（ハイライト）・継手
+  var pShell = pipe.querySelector('.pipe__shell'), pFlow = pipe.querySelector('.pipe__flow'), pMask = pipe.querySelector('.pipe__mask');
+  var maskEl = pipe.querySelector('#pipe-mask'), jointsG = pipe.querySelector('.pipe__joints');
+  var SVGNS = 'http://www.w3.org/2000/svg';
+  var samples = [], total = 0, joints = [];
+
+  // 管の曲がり角の前後と、まっすぐな区間の一定間隔に継手を置く
+  function buildJoints(mobile) {
+    jointsG.innerHTML = ''; joints = [];
+    var step = 4, every = mobile ? 300 : 420, size = mobile ? 15 : 21, thick = mobile ? 5 : 7;
+    var prevAxis = null, prevPt = null, run = 0;
+    function add(l, x, y, horiz) {
+      var r = document.createElementNS(SVGNS, 'rect');
+      r.setAttribute('x', x - (horiz ? thick : size) / 2); r.setAttribute('y', y - (horiz ? size : thick) / 2);
+      r.setAttribute('width', horiz ? thick : size); r.setAttribute('height', horiz ? size : thick); r.setAttribute('rx', 2);
+      jointsG.appendChild(r); joints.push({ l: l, el: r, wet: false });
+    }
+    for (var l = 0; l + step <= total; l += step) {
+      var p = pFg.getPointAtLength(l), q = pFg.getPointAtLength(l + step);
+      var dx = Math.abs(q.x - p.x), dy = Math.abs(q.y - p.y);
+      var axis = dy < .2 ? 'h' : dx < .2 ? 'v' : null;
+      if (axis && prevAxis === null && prevPt) { add(l, p.x, p.y, axis === 'h'); run = 0; }          // 曲がり終わり
+      if (!axis && prevAxis && prevPt) { add(l, prevPt.x, prevPt.y, prevAxis === 'h'); run = 0; }    // 曲がり始め
+      if (axis) { run += step; if (run >= every) { add(l, p.x, p.y, axis === 'h'); run = 0; } }
+      prevAxis = axis; prevPt = p;
+    }
+  }
 
   function roundPath(pts, r) {
     var d = 'M' + pts[0][0] + ' ' + pts[0][1];
@@ -293,11 +319,14 @@
       pts.push([side === 'right' ? right : left, y]);
     });
     var d = roundPath(pts, mobile ? 30 : 70);
-    pBg.setAttribute('d', d); pFg.setAttribute('d', d);
+    [pShell, pBg, pFg, pFlow, pMask].forEach(function (p) { p.setAttribute('d', d); });
+    maskEl.setAttribute('x', 0); maskEl.setAttribute('y', 0); maskEl.setAttribute('width', W); maskEl.setAttribute('height', H);
     total = pFg.getTotalLength();
-    pFg.style.strokeDasharray = total;
+    pFg.style.strokeDasharray = total; pMask.style.strokeDasharray = total;
     samples = [];
     for (var i = 0; i <= 500; i++) { var l = total * i / 500; samples.push([l, pFg.getPointAtLength(l).y]); }
+    buildJoints(mobile);
+    head.setAttribute('r', mobile ? 5 : 7);
     drawPipe();
   }
   function drawPipe() {
@@ -306,6 +335,11 @@
     var y = window.scrollY + window.innerHeight * .6 - top0, len = 0;
     for (var i = 0; i < samples.length; i++) { if (samples[i][1] <= y) len = samples[i][0]; }
     pFg.style.strokeDashoffset = total - len;
+    pMask.style.strokeDashoffset = total - len;   // 水の流れ（ハイライト）は、水が届いた所だけに出す
+    for (var j = 0; j < joints.length; j++) {
+      var wet = joints[j].l <= len;
+      if (wet !== joints[j].wet) { joints[j].wet = wet; joints[j].el.classList.toggle('is-wet', wet); }
+    }
     var p = pFg.getPointAtLength(len); head.setAttribute('cx', p.x); head.setAttribute('cy', p.y);
     head.style.opacity = len > 2 && len < total - 2 ? 1 : 0;
   }

@@ -244,3 +244,25 @@ details.msg-more[open] .job__toggle i::after { transform: none; }
   .wstep__txt b { font-size: 16px; }
   .wstep__txt p { font-size: 13px; }
 }
+
+/* ---------- 配管ライン：本物の配管らしく（外側の管・中の水・継手・流れる水） ---------- */
+.pipe path { stroke-width: 3; }
+.pipe .pipe__shell { stroke: #9fbccd; stroke-width: 14; }
+.pipe .pipe__bg { stroke: #eaf2f6; stroke-width: 9; }
+.pipe .pipe__fg { stroke: var(--aqua); stroke-width: 9; }
+.pipe .pipe__mask { stroke: #fff; stroke-width: 9; }
+.pipe .pipe__flow { stroke: rgba(255,255,255,.75); stroke-width: 2.5; stroke-dasharray: 12 20; animation: pflow 1.1s linear infinite; }
+@keyframes pflow { to { stroke-dashoffset: -64; } }
+.pipe__joints rect { fill: #b9cedb; stroke: #8fadc0; stroke-width: 1; transition: fill .4s, stroke .4s; }
+.pipe__joints rect.is-wet { fill: #1f7fb3; stroke: #17618a; }
+.pipe circle.pipe__head { fill: #fff; stroke: var(--aqua); stroke-width: 3; }
+@media (max-width: 767px) {
+  .pipe .pipe__shell { stroke-width: 10; }
+  .pipe .pipe__bg, .pipe .pipe__fg, .pipe .pipe__mask { stroke-width: 6; }
+  .pipe .pipe__flow { stroke-width: 2; }
+  .pipe circle.pipe__head { stroke-width: 2.5; }
+}
+@media (prefers-reduced-motion: reduce) { .pipe .pipe__flow { animation: none; } }
+
+/* 新しい町のイラストは町と配管が右寄りなので、スマホでは右寄りに切り取る */
+@media (max-width: 767px) { .town__img img { object-position: 78% 60%; } }

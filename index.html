@@ -122,7 +122,7 @@
 </div>
 
 <main id="top">
-  <svg class="pipe" aria-hidden="true"><path class="pipe__bg"/><path class="pipe__fg"/><circle class="pipe__head" r="6"/></svg>
+  <svg class="pipe" aria-hidden="true"><defs><mask id="pipe-mask" maskUnits="userSpaceOnUse"><path class="pipe__mask"/></mask></defs><path class="pipe__shell"/><path class="pipe__bg"/><path class="pipe__fg"/><path class="pipe__flow" mask="url(#pipe-mask)"/><g class="pipe__joints"></g><circle class="pipe__head" r="6"/></svg>
   <a href="#contact" class="pgoal js-line" data-cta="line" data-cta-pos="pipe_goal" aria-label="ゴール。LINEで相談する"><span class="pgoal__ring" aria-hidden="true"></span><span class="pgoal__tag">GOAL!</span><span class="pgoal__btn"><svg aria-hidden="true"><use href="#i-line"/></svg>LINEで相談</span></a>
 
   <!-- ============ 01 FV ============ -->
@@ -219,7 +219,7 @@
     <div class="wrap">
       <div class="sec-head rv"><p class="sec-head__en">OUR <span class="o">ROLE</span></p><p class="sec-head__jp"><span class="n">02</span><span class="t">見えないところで、街を支えている。</span></p></div>
       <figure class="town rv">
-        <div class="town__img"><img class="px" src="assets/img/art-town.webp" alt="海と山にかこまれた街の地下を、水道管がつないでいる様子のイラスト" width="1800" height="1029" loading="lazy"></div>
+        <div class="town__img"><img class="px" src="assets/img/art-town.webp" alt="海と山にかこまれた街の地下を、水道管がつないでいる様子のイラスト" width="1344" height="768" loading="lazy"></div>
         <figcaption class="town__cap"><span class="en">UNDER THE TOWN</span>家も、学校も、駅も。<br>その足元を、水の通り道がつないでいる。</figcaption>
       </figure>
       <div class="role__list">
