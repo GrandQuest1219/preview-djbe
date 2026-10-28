@@ -353,7 +353,15 @@
     var p = pFg.getPointAtLength(len); head.setAttribute('cx', p.x); head.setAttribute('cy', p.y);
     head.style.opacity = len > 2 && len < total - 2 ? 1 : 0;
   }
-  window.addEventListener('scroll', drawPipe, { passive: true });
+  // 水の流れは、スクロールしている間だけ動かす（止まって見ているときは描き直さず、パソコンやスマホの負担を減らす）
+  var idleTimer = null;
+  pipe.classList.add('is-idle');
+  function wake() {
+    pipe.classList.remove('is-idle');
+    clearTimeout(idleTimer);
+    idleTimer = setTimeout(function () { pipe.classList.add('is-idle'); }, 1200);
+  }
+  window.addEventListener('scroll', function () { drawPipe(); wake(); }, { passive: true });
   ST.addEventListener('refresh', buildPipe);
   window.addEventListener('load', function () { ST.refresh(); });
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { ST.refresh(); });

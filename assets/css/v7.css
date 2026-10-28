@@ -307,3 +307,7 @@ details.msg-more[open] .job__toggle i::after { transform: none; }
 .contact { padding-bottom: clamp(140px, 14vw, 190px); }
 /* スマホで地図がはみ出さないように */
 .places > * { min-width: 0; }
+
+/* 軽量化：止まっているとき・画面の外にあるときは、くり返しの動きを止める */
+.pipe.is-idle .pipe__flow { animation-play-state: paused; }
+.is-offscreen, .is-offscreen *, .is-offscreen *::before, .is-offscreen *::after { animation-play-state: paused !important; }

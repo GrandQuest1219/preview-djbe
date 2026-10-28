@@ -281,3 +281,15 @@
   }, { rootMargin: '0px 0px -30% 0px' });
   io.observe(map);
 })();
+
+// 軽量化：ずっと動いている小さな演出は、画面に見えている間だけ動かす
+(function () {
+  if (!('IntersectionObserver' in window)) return;
+  var io = new IntersectionObserver(function (es) {
+    es.forEach(function (e) { e.target.classList.toggle('is-offscreen', !e.isIntersecting); });
+  });
+  document.querySelectorAll('.hero__scroll, .pause, .waiting, .quick, .pgoal').forEach(function (el) {
+    el.classList.add('is-offscreen');
+    io.observe(el);
+  });
+})();

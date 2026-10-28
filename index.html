@@ -17,6 +17,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="assets/img/g-hero.webp" fetchpriority="high">
 <link rel="stylesheet" href="assets/css/style.css">
 <link rel="stylesheet" href="assets/css/v5.css">
 <link rel="stylesheet" href="assets/css/v6.css">
@@ -36,7 +37,6 @@
 }
 </script>
 </head>
-<body>
 <style>
   /* 確認用プレビューの帯（本番には入れない） */
   .pv-bar { position: fixed; top: 0; left: 0; right: 0; z-index: 200; height: 30px; display: flex; align-items: center; justify-content: center; gap: 10px; padding: 0 16px; background: #0f1d3a; color: #fff; font: 700 12px/1.2 "Noto Sans JP", "Hiragino Sans", "Yu Gothic", sans-serif; letter-spacing: .04em; white-space: nowrap; overflow: hidden; }
@@ -47,6 +47,7 @@
   @media (max-width: 480px) { .pv-bar .pv-sub { display: none; } }
 </style>
 <div class="pv-bar" role="note"><b>制作中のプレビュー</b><span class="pv-sub">LINE・フォームはまだつながっていません</span></div>
+<body>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
@@ -87,14 +88,14 @@
   <div class="menu__bg"></div>
   <div class="menu__inner wrap">
     <nav class="menu__nav" aria-label="メニュー">
-      <a href="#about"><span class="n">01</span><b>ABOUT</b><small>中村住設って、何の会社？</small><img src="assets/img/g-office.jpg" alt="" loading="lazy"></a>
-      <a href="#role"><span class="n">02</span><b>OUR ROLE</b><small>見えないところで、街を支える</small><img src="assets/img/g-road.jpg" alt="" loading="lazy"></a>
-      <a href="#numbers"><span class="n">03</span><b>FACTS</b><small>数字で見る、中村住設</small><img src="assets/img/g-station.jpg" alt="" loading="lazy"></a>
-      <a href="#work"><span class="n">04</span><b>WORK</b><small>仕事内容</small><img src="assets/img/g-site.jpg" alt="" loading="lazy"></a>
-      <a href="#team"><span class="n">05</span><b>TEAM</b><small>チーム中村住設</small><img src="assets/img/g-team.jpg" alt="" loading="lazy"></a>
-      <a href="#growth"><span class="n">06</span><b>GROWTH</b><small>未経験からの成長</small><img src="assets/img/g-training.jpg" alt="" loading="lazy"></a>
-      <a href="#workstyle"><span class="n">09</span><b>WORK STYLE</b><small>働き方・職場環境</small><img src="assets/img/g-meeting.jpg" alt="" loading="lazy"></a>
-      <a href="#recruit"><span class="n">11</span><b>RECRUIT</b><small>募集要項・よくある質問</small><img src="assets/img/g-pump.jpg" alt="" loading="lazy"></a>
+      <a href="#about"><span class="n">01</span><b>ABOUT</b><small>中村住設って、何の会社？</small><img src="assets/img/g-office.webp" srcset="assets/img/g-office-800.webp 800w, assets/img/g-office.webp 1200w" sizes="(max-width: 767px) 92vw, 50vw" alt="" loading="lazy" decoding="async"></a>
+      <a href="#role"><span class="n">02</span><b>OUR ROLE</b><small>見えないところで、街を支える</small><img src="assets/img/g-road.webp" srcset="assets/img/g-road-800.webp 800w, assets/img/g-road.webp 1200w" sizes="(max-width: 767px) 92vw, 50vw" alt="" loading="lazy" decoding="async"></a>
+      <a href="#numbers"><span class="n">03</span><b>FACTS</b><small>数字で見る、中村住設</small><img src="assets/img/g-station.webp" srcset="assets/img/g-station-800.webp 800w, assets/img/g-station.webp 1200w" sizes="(max-width: 767px) 92vw, 50vw" alt="" loading="lazy" decoding="async"></a>
+      <a href="#work"><span class="n">04</span><b>WORK</b><small>仕事内容</small><img src="assets/img/g-site.webp" srcset="assets/img/g-site-800.webp 800w, assets/img/g-site.webp 1200w" sizes="(max-width: 767px) 92vw, 50vw" alt="" loading="lazy" decoding="async"></a>
+      <a href="#team"><span class="n">05</span><b>TEAM</b><small>チーム中村住設</small><img src="assets/img/g-team.webp" srcset="assets/img/g-team-800.webp 800w, assets/img/g-team.webp 1200w" sizes="(max-width: 767px) 92vw, 50vw" alt="" loading="lazy" decoding="async"></a>
+      <a href="#growth"><span class="n">06</span><b>GROWTH</b><small>未経験からの成長</small><img src="assets/img/g-training.webp" srcset="assets/img/g-training-800.webp 800w, assets/img/g-training.webp 1200w" sizes="(max-width: 767px) 92vw, 50vw" alt="" loading="lazy" decoding="async"></a>
+      <a href="#workstyle"><span class="n">09</span><b>WORK STYLE</b><small>働き方・職場環境</small><img src="assets/img/g-meeting.webp" srcset="assets/img/g-meeting-800.webp 800w, assets/img/g-meeting.webp 1200w" sizes="(max-width: 767px) 92vw, 50vw" alt="" loading="lazy" decoding="async"></a>
+      <a href="#recruit"><span class="n">11</span><b>RECRUIT</b><small>募集要項・よくある質問</small><img src="assets/img/g-pump.webp" srcset="assets/img/g-pump-800.webp 800w, assets/img/g-pump.webp 1200w" sizes="(max-width: 767px) 92vw, 50vw" alt="" loading="lazy" decoding="async"></a>
     </nav>
     <div class="menu__side">
       <p class="menu__copy">まずは、話を<br>聞くだけでも。</p>
@@ -145,10 +146,10 @@
             <svg viewBox="0 0 600 560" preserveAspectRatio="xMidYMid slice">
               <defs><clipPath id="hc"><use href="#b1"/></clipPath></defs>
               <use href="#b2" fill="#2b9fd6" transform="translate(40 30)" class="hero__under"/>
-              <image class="hero__img" href="assets/img/g-hero.jpg" x="-40" y="-20" width="700" height="560" preserveAspectRatio="xMidYMid slice" clip-path="url(#hc)"/>
+              <image class="hero__img" href="assets/img/g-hero.webp" x="-40" y="-20" width="700" height="560" preserveAspectRatio="xMidYMid slice" clip-path="url(#hc)"/>
             </svg>
           </div>
-          <img class="hero__sticker" src="assets/img/cut-excavator.png" alt="中村住設の小型ショベル" width="760" height="548">
+          <img class="hero__sticker" fetchpriority="high" src="assets/img/cut-excavator.webp" alt="中村住設の小型ショベル" width="760" height="548">
           <div class="hero__badge" aria-hidden="true">
             <svg viewBox="0 0 120 120"><defs><path id="circ" d="M60 60m-46 0a46 46 0 1 1 92 0a46 46 0 1 1-92 0"/></defs><circle cx="60" cy="60" r="58" fill="#fbf9f4"/><text><textPath href="#circ">SINCE 1934 ・ TSURUGA ・ WATER ・ </textPath></text><path class="c" d="M60 40C60 40 47 56 47 64a13 13 0 0 0 26 0C73 56 60 40 60 40z"/></svg>
           </div>
@@ -189,8 +190,8 @@
       <div class="sec-head rv"><p class="sec-head__en">ABOUT <span class="o">US</span></p><p class="sec-head__jp"><span class="n">01</span><span class="t">中村住設って、何の会社？</span></p></div>
       <div class="about__grid">
         <div class="about__photo rv">
-          <div class="main"><img class="px" src="assets/img/g-office.jpg" alt="敦賀市津内町にある中村住設の社屋" width="1800" height="1350" loading="lazy"></div>
-          <div class="sub"><img src="assets/img/g-snow.jpg" alt="雪の日にショベルで除雪する様子" width="1800" height="1350" loading="lazy"></div>
+          <div class="main"><img class="px" src="assets/img/g-office.webp" srcset="assets/img/g-office-800.webp 800w, assets/img/g-office.webp 1200w" sizes="(max-width: 767px) 92vw, 50vw" alt="敦賀市津内町にある中村住設の社屋" width="1800" height="1350" loading="lazy" decoding="async"></div>
+          <div class="sub"><img src="assets/img/g-snow.webp" srcset="assets/img/g-snow-800.webp 800w, assets/img/g-snow.webp 1200w" sizes="(max-width: 767px) 92vw, 50vw" alt="雪の日にショベルで除雪する様子" width="1800" height="1350" loading="lazy" decoding="async"></div>
         </div>
         <div class="about__copy">
           <p class="lead-copy rv">水道屋さん、<br>だけじゃない。</p>
@@ -219,20 +220,20 @@
     <div class="wrap">
       <div class="sec-head rv"><p class="sec-head__en">OUR <span class="o">ROLE</span></p><p class="sec-head__jp"><span class="n">02</span><span class="t">見えないところで、街を支えている。</span></p></div>
       <figure class="town rv">
-        <div class="town__img"><img class="px" src="assets/img/art-town.webp" alt="海と山にかこまれた街の地下を、水道管がつないでいる様子のイラスト" width="1344" height="768" loading="lazy"></div>
+        <div class="town__img"><img class="px" src="assets/img/art-town.webp" alt="海と山にかこまれた街の地下を、水道管がつないでいる様子のイラスト" width="1344" height="768" loading="lazy" decoding="async"></div>
         <figcaption class="town__cap"><span class="en">UNDER THE TOWN</span>家も、学校も、駅も。<br>その足元を、水の通り道がつないでいる。</figcaption>
       </figure>
       <div class="role__list">
         <article class="role-item">
-          <div class="role-item__img rv"><img class="px" src="assets/img/g-road.jpg" alt="道路で水道管の工事をする現場" width="1477" height="1108" loading="lazy"></div>
+          <div class="role-item__img rv"><img class="px" src="assets/img/g-road.webp" srcset="assets/img/g-road-800.webp 800w, assets/img/g-road.webp 1200w" sizes="(max-width: 767px) 92vw, 50vw" alt="道路で水道管の工事をする現場" width="1477" height="1108" loading="lazy" decoding="async"></div>
           <div><span class="role-item__no rv">01 — WATER</span><h3 class="rv">蛇口をひねれば、<br>水が出る。</h3><p class="rv">道路の下の水道管から、家の中の給排水まで。毎日きれいな水を使えるように、配管をつなぎ、守っています。</p></div>
         </article>
         <article class="role-item">
-          <div class="role-item__img rv"><img class="px" src="assets/img/g-air-a.jpg" alt="新しく取り付けたエアコン" width="1200" height="900" loading="lazy"></div>
+          <div class="role-item__img rv"><img class="px" src="assets/img/g-air-a.webp" srcset="assets/img/g-air-a-800.webp 800w, assets/img/g-air-a.webp 1200w" sizes="(max-width: 767px) 92vw, 50vw" alt="新しく取り付けたエアコン" width="1200" height="900" loading="lazy" decoding="async"></div>
           <div><span class="role-item__no rv">02 — AIR &amp; HEAT</span><h3 class="rv">寒い日も、<br>部屋が暖かい。</h3><p class="rv">空調や給湯の設備も、配管の仕事です。住宅から学校・施設まで、快適に過ごせる環境をつくっています。</p></div>
         </article>
         <article class="role-item">
-          <div class="role-item__img rv"><img class="px" src="assets/img/g-snow.jpg" alt="雪の積もった道路で除雪作業をする重機" width="1800" height="1350" loading="lazy"></div>
+          <div class="role-item__img rv"><img class="px" src="assets/img/g-snow.webp" srcset="assets/img/g-snow-800.webp 800w, assets/img/g-snow.webp 1200w" sizes="(max-width: 767px) 92vw, 50vw" alt="雪の積もった道路で除雪作業をする重機" width="1800" height="1350" loading="lazy" decoding="async"></div>
           <div><span class="role-item__no rv">03 — SNOW</span><h3 class="rv">雪の日も、<br>通勤・通学ができる。</h3><p class="rv">消雪設備の工事や除雪で、冬の敦賀の道を守ります。雪の多い地域ならではの大切な仕事です。</p></div>
         </article>
       </div>
@@ -284,13 +285,13 @@
           </svg>
           <span class="tmap__bay">TSURUGA BAY</span>
           <svg class="tmap__pipes" aria-hidden="true"></svg>
-          <div class="tbld tbld--home" style="--x:42%;--y:60%"><img src="assets/img/map-home.webp" alt="" width="400" height="400" loading="lazy"><b>中村住設</b></div>
-          <div class="tbld" style="--x:80%;--y:40%"><img src="assets/img/map-brick.webp" alt="" width="400" height="400" loading="lazy"><b>赤レンガ倉庫</b></div>
-          <div class="tbld" style="--x:58%;--y:38%"><img src="assets/img/map-shrine.webp" alt="" width="400" height="400" loading="lazy"><b>氣比神宮</b></div>
-          <div class="tbld" style="--x:78%;--y:72%"><img src="assets/img/map-cityhall.webp" alt="" width="400" height="400" loading="lazy"><b>市役所</b></div>
-          <div class="tbld" style="--x:54%;--y:88%"><img src="assets/img/map-station.webp" alt="" width="400" height="400" loading="lazy"><b>敦賀駅前広場</b></div>
-          <div class="tbld" style="--x:18%;--y:44%"><img src="assets/img/map-school.webp" alt="" width="400" height="400" loading="lazy"><b>敦賀高校</b></div>
-          <div class="tbld" style="--x:22%;--y:84%"><img src="assets/img/map-lab.webp" alt="" width="400" height="400" loading="lazy"><b>原子力工学研究所</b></div>
+          <div class="tbld tbld--home" style="--x:42%;--y:60%"><img src="assets/img/map-home.webp" alt="" width="400" height="400" loading="lazy" decoding="async"><b>中村住設</b></div>
+          <div class="tbld" style="--x:80%;--y:40%"><img src="assets/img/map-brick.webp" alt="" width="400" height="400" loading="lazy" decoding="async"><b>赤レンガ倉庫</b></div>
+          <div class="tbld" style="--x:58%;--y:38%"><img src="assets/img/map-shrine.webp" alt="" width="400" height="400" loading="lazy" decoding="async"><b>氣比神宮</b></div>
+          <div class="tbld" style="--x:78%;--y:72%"><img src="assets/img/map-cityhall.webp" alt="" width="400" height="400" loading="lazy" decoding="async"><b>市役所</b></div>
+          <div class="tbld" style="--x:54%;--y:88%"><img src="assets/img/map-station.webp" alt="" width="400" height="400" loading="lazy" decoding="async"><b>敦賀駅前広場</b></div>
+          <div class="tbld" style="--x:18%;--y:44%"><img src="assets/img/map-school.webp" alt="" width="400" height="400" loading="lazy" decoding="async"><b>敦賀高校</b></div>
+          <div class="tbld" style="--x:22%;--y:84%"><img src="assets/img/map-lab.webp" alt="" width="400" height="400" loading="lazy" decoding="async"><b>原子力工学研究所</b></div>
           <span class="note tmap__note">※位置は目安のイメージです</span>
         </div>
       </div>
@@ -298,8 +299,8 @@
       <div class="community">
         <div class="community__grid">
           <div class="community__photos">
-            <figure class="rv"><img src="assets/img/g-kids.jpg" alt="イベントで子どもたちが配管ボードを体験する様子" width="1477" height="1108" loading="lazy"></figure>
-            <figure class="rv"><img src="assets/img/g-booth.jpg" alt="技術フェアの体験ブース" width="1477" height="1108" loading="lazy"></figure>          </div>
+            <figure class="rv"><img src="assets/img/g-kids.webp" srcset="assets/img/g-kids-800.webp 800w, assets/img/g-kids.webp 1200w" sizes="(max-width: 767px) 92vw, 50vw" alt="イベントで子どもたちが配管ボードを体験する様子" width="1477" height="1108" loading="lazy" decoding="async"></figure>
+            <figure class="rv"><img src="assets/img/g-booth.webp" srcset="assets/img/g-booth-800.webp 800w, assets/img/g-booth.webp 1200w" sizes="(max-width: 767px) 92vw, 50vw" alt="技術フェアの体験ブース" width="1477" height="1108" loading="lazy" decoding="async"></figure>          </div>
           <div>
             <span class="role-item__no rv">COMMUNITY</span>
             <p class="lead-copy rv" style="margin-top:14px">次の世代に、<br>水道の仕事を伝える。</p>
@@ -331,7 +332,7 @@
 
   <!-- ============ Interlude ============ -->
   <div class="interlude" aria-label="水と、まちと、チーム。">
-    <div class="interlude__art"><img src="assets/img/art-water.webp" alt="" width="1600" height="914" loading="lazy"></div>
+    <div class="interlude__art"><img src="assets/img/art-water.webp" alt="" width="1600" height="914" loading="lazy" decoding="async"></div>
     <p class="interlude__copy"><span>水と、</span><span>まちと、</span><span>チーム。</span></p>
   </div>
 
@@ -340,7 +341,7 @@
     <div class="wrap">
       <div class="sec-head rv"><p class="sec-head__en">WORK</p><p class="sec-head__jp"><span class="n">04</span><span class="t">仕事内容</span></p></div>
       <div class="work__intro">
-        <div class="work__intro-img rv"><img class="px" src="assets/img/g-site.jpg" alt="掘削した道路で配管作業をする社員" width="1800" height="1350" loading="lazy"></div>
+        <div class="work__intro-img rv"><img class="px" src="assets/img/g-site.webp" srcset="assets/img/g-site-800.webp 800w, assets/img/g-site.webp 1200w" sizes="(max-width: 767px) 92vw, 50vw" alt="掘削した道路で配管作業をする社員" width="1800" height="1350" loading="lazy" decoding="async"></div>
         <div>
           <p class="lead-copy rv">水とお湯と空気の、<br>通り道をつくる仕事。</p>
           <p class="body-copy rv">配管工の仕事は、水道管や排水管、空調や給湯の管をつないで、建物や街に「通り道」をつくることです。</p>
@@ -351,12 +352,12 @@
     <div class="hs">
       <div class="wrap">
         <div class="hs__track">
-          <article class="wcard"><div class="wcard__img"><img src="assets/img/g-house.jpg" alt="改修後の住宅のトイレ" loading="lazy"></div><span class="wcard__no">01 / HOUSE</span><h4>住宅の水まわり</h4><p>トイレ・お風呂・キッチンの修理や交換、給湯器の取り替えなど。暮らしの「困った」に直接応える仕事です。</p></article>
-          <article class="wcard"><div class="wcard__img"><img src="assets/img/g-hero.jpg" alt="道路下の水道管をつなぐ社員" loading="lazy"></div><span class="wcard__no">02 / WATER LINE</span><h4>上下水道の配管工事</h4><p>道路の下を通る水道管の新設・入れ替えなど。敦賀市の上水道・下水道の公認工事店として担当しています。</p></article>
-          <article class="wcard"><div class="wcard__img"><img src="assets/img/g-building.jpg" alt="建物内に施工された配管" loading="lazy"></div><span class="wcard__no">03 / BUILDING</span><h4>建物の設備配管</h4><p>学校や施設、店舗などの給排水・空調・衛生設備の配管。図面をもとに、建物の中に設備の通り道をつくります。</p></article>
-          <article class="wcard"><div class="wcard__img"><img src="assets/img/g-dig.jpg" alt="掘った穴の中で水道管を扱う社員" loading="lazy" style="object-position:center 40%"></div><span class="wcard__no">04 / REPAIR</span><h4>漏水調査・修理</h4><p>どこから水が漏れているのか、専用の機器を使って調べます。原因を見つけて直すまでが仕事です。</p></article>
-          <article class="wcard"><div class="wcard__img"><img src="assets/img/g-pump.jpg" alt="ポンプ設備の材料検査" loading="lazy"></div><span class="wcard__no">05 / EQUIPMENT</span><h4>ポンプなどの設備工事</h4><p>排水ポンプや浄化槽など、水を送る・きれいにするための設備の設置や入れ替えも行います。</p></article>
-          <article class="wcard"><div class="wcard__img"><img src="assets/img/g-road2.jpg" alt="山あいの道路で配管工事をする重機" loading="lazy"></div><span class="wcard__no">06 / PUBLIC</span><h4>公共工事・消雪設備</h4><p>市や県から発注される工事にも対応。道路の消雪設備など、雪国の暮らしに欠かせない仕事も担います。</p></article>
+          <article class="wcard"><div class="wcard__img"><img src="assets/img/g-house.webp" srcset="assets/img/g-house-800.webp 800w, assets/img/g-house.webp 1200w" sizes="(max-width: 767px) 92vw, 50vw" alt="改修後の住宅のトイレ" loading="lazy" decoding="async"></div><span class="wcard__no">01 / HOUSE</span><h4>住宅の水まわり</h4><p>トイレ・お風呂・キッチンの修理や交換、給湯器の取り替えなど。暮らしの「困った」に直接応える仕事です。</p></article>
+          <article class="wcard"><div class="wcard__img"><img src="assets/img/g-hero.webp" srcset="assets/img/g-hero-800.webp 800w, assets/img/g-hero.webp 1200w" sizes="(max-width: 767px) 92vw, 50vw" alt="道路下の水道管をつなぐ社員" loading="lazy" decoding="async"></div><span class="wcard__no">02 / WATER LINE</span><h4>上下水道の配管工事</h4><p>道路の下を通る水道管の新設・入れ替えなど。敦賀市の上水道・下水道の公認工事店として担当しています。</p></article>
+          <article class="wcard"><div class="wcard__img"><img src="assets/img/g-building.webp" srcset="assets/img/g-building-800.webp 800w, assets/img/g-building.webp 1200w" sizes="(max-width: 767px) 92vw, 50vw" alt="建物内に施工された配管" loading="lazy" decoding="async"></div><span class="wcard__no">03 / BUILDING</span><h4>建物の設備配管</h4><p>学校や施設、店舗などの給排水・空調・衛生設備の配管。図面をもとに、建物の中に設備の通り道をつくります。</p></article>
+          <article class="wcard"><div class="wcard__img"><img src="assets/img/g-dig.webp" srcset="assets/img/g-dig-800.webp 800w, assets/img/g-dig.webp 1108w" sizes="(max-width: 767px) 92vw, 50vw" alt="掘った穴の中で水道管を扱う社員" loading="lazy" decoding="async" style="object-position:center 40%"></div><span class="wcard__no">04 / REPAIR</span><h4>漏水調査・修理</h4><p>どこから水が漏れているのか、専用の機器を使って調べます。原因を見つけて直すまでが仕事です。</p></article>
+          <article class="wcard"><div class="wcard__img"><img src="assets/img/g-pump.webp" srcset="assets/img/g-pump-800.webp 800w, assets/img/g-pump.webp 1200w" sizes="(max-width: 767px) 92vw, 50vw" alt="ポンプ設備の材料検査" loading="lazy" decoding="async"></div><span class="wcard__no">05 / EQUIPMENT</span><h4>ポンプなどの設備工事</h4><p>排水ポンプや浄化槽など、水を送る・きれいにするための設備の設置や入れ替えも行います。</p></article>
+          <article class="wcard"><div class="wcard__img"><img src="assets/img/g-road2.webp" srcset="assets/img/g-road2-800.webp 800w, assets/img/g-road2.webp 1200w" sizes="(max-width: 767px) 92vw, 50vw" alt="山あいの道路で配管工事をする重機" loading="lazy" decoding="async"></div><span class="wcard__no">06 / PUBLIC</span><h4>公共工事・消雪設備</h4><p>市や県から発注される工事にも対応。道路の消雪設備など、雪国の暮らしに欠かせない仕事も担います。</p></article>
         </div>
         <div class="hs__bar"><i></i></div>
         <p class="hs__hint">SWIPE →</p>
@@ -370,20 +371,20 @@
           <p class="body-copy rv">住宅の水まわりや設備の入れ替えも、中村住設の仕事です。つまみを左右に動かして、くらべてみてください。</p>
         </div>
         <div class="ba__items">
-          <div class="rv"><div class="ba-item" style="--pos:50%"><img src="assets/img/g-wash-b.jpg" alt="交換前の洗面台" loading="lazy"><img class="after" src="assets/img/g-wash-a.jpg" alt="交換後の洗面台" loading="lazy"><span class="ba-item__bar"></span><span class="ba-item__knob">&lt;&gt;</span><span class="ba-item__t b">BEFORE</span><span class="ba-item__t a">AFTER</span><input type="range" min="0" max="100" value="50" aria-label="洗面台の交換前と交換後をくらべる"></div><p class="ba-cap">洗面台の交換</p></div>
-          <div class="rv"><div class="ba-item" style="--pos:50%"><img src="assets/img/g-air-b.jpg" alt="交換前のエアコン" loading="lazy"><img class="after" src="assets/img/g-air-a.jpg" alt="交換後のエアコン" loading="lazy"><span class="ba-item__bar"></span><span class="ba-item__knob">&lt;&gt;</span><span class="ba-item__t b">BEFORE</span><span class="ba-item__t a">AFTER</span><input type="range" min="0" max="100" value="50" aria-label="エアコンの交換前と交換後をくらべる"></div><p class="ba-cap">エアコンの入れ替え</p></div>
+          <div class="rv"><div class="ba-item" style="--pos:50%"><img src="assets/img/g-wash-b.webp" srcset="assets/img/g-wash-b-800.webp 800w, assets/img/g-wash-b.webp 1200w" sizes="(max-width: 767px) 92vw, 50vw" alt="交換前の洗面台" loading="lazy" decoding="async"><img class="after" src="assets/img/g-wash-a.webp" srcset="assets/img/g-wash-a-800.webp 800w, assets/img/g-wash-a.webp 1200w" sizes="(max-width: 767px) 92vw, 50vw" alt="交換後の洗面台" loading="lazy" decoding="async"><span class="ba-item__bar"></span><span class="ba-item__knob">&lt;&gt;</span><span class="ba-item__t b">BEFORE</span><span class="ba-item__t a">AFTER</span><input type="range" min="0" max="100" value="50" aria-label="洗面台の交換前と交換後をくらべる"></div><p class="ba-cap">洗面台の交換</p></div>
+          <div class="rv"><div class="ba-item" style="--pos:50%"><img src="assets/img/g-air-b.webp" srcset="assets/img/g-air-b-800.webp 800w, assets/img/g-air-b.webp 1200w" sizes="(max-width: 767px) 92vw, 50vw" alt="交換前のエアコン" loading="lazy" decoding="async"><img class="after" src="assets/img/g-air-a.webp" srcset="assets/img/g-air-a-800.webp 800w, assets/img/g-air-a.webp 1200w" sizes="(max-width: 767px) 92vw, 50vw" alt="交換後のエアコン" loading="lazy" decoding="async"><span class="ba-item__bar"></span><span class="ba-item__knob">&lt;&gt;</span><span class="ba-item__t b">BEFORE</span><span class="ba-item__t a">AFTER</span><input type="range" min="0" max="100" value="50" aria-label="エアコンの交換前と交換後をくらべる"></div><p class="ba-cap">エアコンの入れ替え</p></div>
         </div>
       </div>
       <div class="flow">
         <div class="wflow__head rv"><p class="wflow__en">FLOW</p><h3>仕事の流れ</h3><p>ご相談からお引き渡しまで。ひとつの現場は、こんなふうに進みます。</p></div>
         <ol class="wflow">
-          <li class="wstep"><div class="wstep__fig"><span class="wstep__no">01</span><img src="assets/img/flow-1.jpg" alt="" loading="lazy" width="640" height="640"></div><div class="wstep__txt"><b>ご相談</b><p>電話やLINEで「水が漏れる」「設備を入れ替えたい」などのご相談を受けます。</p></div></li>
-          <li class="wstep"><div class="wstep__fig"><span class="wstep__no">02</span><img src="assets/img/flow-2.jpg" alt="" loading="lazy" width="640" height="640"></div><div class="wstep__txt"><b>現地調査</b><p>現場へ行き、配管の状態や場所を自分の目で確かめます。</p></div></li>
-          <li class="wstep"><div class="wstep__fig"><span class="wstep__no">03</span><img src="assets/img/flow-3.jpg" alt="" loading="lazy" width="640" height="640"></div><div class="wstep__txt"><b>ご提案・お見積り</b><p>調査をもとに、工事の方法と費用をまとめてお伝えします。</p></div></li>
-          <li class="wstep"><div class="wstep__fig"><span class="wstep__no">04</span><img src="assets/img/flow-4.jpg" alt="" loading="lazy" width="640" height="640"></div><div class="wstep__txt"><b>ご契約</b><p>内容に納得いただいたら、工事の日程を決めます。</p></div></li>
-          <li class="wstep"><div class="wstep__fig"><span class="wstep__no">05</span><img src="assets/img/flow-5.jpg" alt="" loading="lazy" width="640" height="640"></div><div class="wstep__txt"><b>施工</b><p>先輩と一緒に、配管をつなぎ、設備を取り付けます。</p></div></li>
-          <li class="wstep"><div class="wstep__fig"><span class="wstep__no">06</span><img src="assets/img/flow-6.jpg" alt="" loading="lazy" width="640" height="640"></div><div class="wstep__txt"><b>社内検査・確認</b><p>水漏れや水圧を確かめ、仕上がりを社内でチェックします。</p></div></li>
-          <li class="wstep"><div class="wstep__fig"><span class="wstep__no">07</span><img src="assets/img/flow-7.jpg" alt="" loading="lazy" width="640" height="640"></div><div class="wstep__txt"><b>お引き渡し</b><p>使い方をお伝えして完了。「ありがとう」をもらえる瞬間です。</p></div></li>
+          <li class="wstep"><div class="wstep__fig"><span class="wstep__no">01</span><img src="assets/img/flow-1.webp" alt="" loading="lazy" decoding="async" width="640" height="640"></div><div class="wstep__txt"><b>ご相談</b><p>電話やLINEで「水が漏れる」「設備を入れ替えたい」などのご相談を受けます。</p></div></li>
+          <li class="wstep"><div class="wstep__fig"><span class="wstep__no">02</span><img src="assets/img/flow-2.webp" alt="" loading="lazy" decoding="async" width="640" height="640"></div><div class="wstep__txt"><b>現地調査</b><p>現場へ行き、配管の状態や場所を自分の目で確かめます。</p></div></li>
+          <li class="wstep"><div class="wstep__fig"><span class="wstep__no">03</span><img src="assets/img/flow-3.webp" alt="" loading="lazy" decoding="async" width="640" height="640"></div><div class="wstep__txt"><b>ご提案・お見積り</b><p>調査をもとに、工事の方法と費用をまとめてお伝えします。</p></div></li>
+          <li class="wstep"><div class="wstep__fig"><span class="wstep__no">04</span><img src="assets/img/flow-4.webp" alt="" loading="lazy" decoding="async" width="640" height="640"></div><div class="wstep__txt"><b>ご契約</b><p>内容に納得いただいたら、工事の日程を決めます。</p></div></li>
+          <li class="wstep"><div class="wstep__fig"><span class="wstep__no">05</span><img src="assets/img/flow-5.webp" alt="" loading="lazy" decoding="async" width="640" height="640"></div><div class="wstep__txt"><b>施工</b><p>先輩と一緒に、配管をつなぎ、設備を取り付けます。</p></div></li>
+          <li class="wstep"><div class="wstep__fig"><span class="wstep__no">06</span><img src="assets/img/flow-6.webp" alt="" loading="lazy" decoding="async" width="640" height="640"></div><div class="wstep__txt"><b>社内検査・確認</b><p>水漏れや水圧を確かめ、仕上がりを社内でチェックします。</p></div></li>
+          <li class="wstep"><div class="wstep__fig"><span class="wstep__no">07</span><img src="assets/img/flow-7.webp" alt="" loading="lazy" decoding="async" width="640" height="640"></div><div class="wstep__txt"><b>お引き渡し</b><p>使い方をお伝えして完了。「ありがとう」をもらえる瞬間です。</p></div></li>
         </ol>
         <div class="scale">
           <div class="rv"><span class="en">SMALL</span><h4>個人のお宅の、漏水修理から。</h4><p>「水が止まらない」「お湯が出ない」。目の前のお客さまに感謝される仕事です。</p></div>
@@ -402,7 +403,7 @@
     <div class="wrap">
       <div class="sec-head rv"><p class="sec-head__en">TEAM <span class="o">NAKAMURA</span></p><p class="sec-head__jp"><span class="n">05</span><span class="t">チーム中村住設。</span></p></div>
       <div class="team__hero rv">
-        <div class="team__hero-img"><img class="px" src="assets/img/g-team.jpg" alt="中村住設のメンバーが食事会で集まった様子" width="1477" height="1108" loading="lazy"></div>
+        <div class="team__hero-img"><img class="px" src="assets/img/g-team.webp" srcset="assets/img/g-team-800.webp 800w, assets/img/g-team.webp 1200w" sizes="(max-width: 767px) 92vw, 50vw" alt="中村住設のメンバーが食事会で集まった様子" width="1477" height="1108" loading="lazy" decoding="async"></div>
         <p class="team__hero-copy"><span>仕事は、真剣に。</span><span>オフは、全力で。</span></p>
       </div>
       <p class="body-copy rv" style="margin-top:70px">社員6名の会社だから、全員の顔と名前がわかります。現場では、経験20年以上の先輩と一緒に動きます。分からないことは、その場で聞いてOK。</p>
@@ -413,12 +414,12 @@
           <div class="switch rv" role="group" aria-label="写真の切り替え"><span class="switch__knob"></span><button type="button" data-mode="on" aria-pressed="true">ON</button><button type="button" data-mode="off" aria-pressed="false">OFF</button></div>
         </div>
         <div class="onoff__grid">
-          <figure class="rv"><img class="on" src="assets/img/g-meeting.jpg" alt="事務所での打ち合わせ" loading="lazy"><img class="off" src="assets/img/g-off-dino.jpg" alt="地域のイベントで恐竜の着ぐるみを着たメンバー" loading="lazy"><figcaption><span class="o1">朝の打ち合わせ</span><span class="o2">地域イベントで恐竜に</span></figcaption></figure>
-          <figure class="rv"><img class="on" src="assets/img/g-pipe.jpg" alt="道路の下で配管をつなぐ作業" loading="lazy"><img class="off" src="assets/img/g-off-uni.jpg" alt="ユニフォーム姿でイベントに参加するメンバー" loading="lazy"><figcaption><span class="o1">水道管をつなぐ</span><span class="o2">地域のイベントに参加</span></figcaption></figure>
-          <figure class="rv"><img class="on" src="assets/img/g-tool.jpg" alt="専用工具で配管をつなぐ作業" loading="lazy"><img class="off" src="assets/img/g-off-golf.jpg" alt="ゴルフを楽しむメンバー" loading="lazy" style="object-position:center 30%"><figcaption><span class="o1">専用工具で配管を</span><span class="o2">休日はゴルフ</span></figcaption></figure>
-          <figure class="rv"><img class="on" src="assets/img/g-meeting2.jpg" alt="資料を囲んでの打ち合わせ" loading="lazy"><img class="off" src="assets/img/g-off-fest.jpg" alt="お祭りで笑顔のメンバー" loading="lazy"><figcaption><span class="o1">現場ごとに作戦会議</span><span class="o2">お祭りも全力</span></figcaption></figure>
-          <figure class="rv"><img class="on" src="assets/img/g-snow.jpg" alt="除雪作業" loading="lazy"><img class="off" src="assets/img/g-off-bike.jpg" alt="イベントで白バイにまたがるメンバー" loading="lazy" style="object-position:center 30%"><figcaption><span class="o1">雪の日は除雪へ</span><span class="o2">イベントで白バイ体験</span></figcaption></figure>
-          <figure class="rv"><img class="on" src="assets/img/g-pump.jpg" alt="ポンプの材料検査" loading="lazy"><img class="off" src="assets/img/g-off-dog.jpg" alt="愛犬を抱くメンバー" loading="lazy" style="object-position:center 30%"><figcaption><span class="o1">材料の検査</span><span class="o2">愛犬との休日</span></figcaption></figure>
+          <figure class="rv"><img class="on" src="assets/img/g-meeting.webp" srcset="assets/img/g-meeting-800.webp 800w, assets/img/g-meeting.webp 1200w" sizes="(max-width: 767px) 92vw, 50vw" alt="事務所での打ち合わせ" loading="lazy" decoding="async"><img class="off" src="assets/img/g-off-dino.webp" srcset="assets/img/g-off-dino-800.webp 800w, assets/img/g-off-dino.webp 1200w" sizes="(max-width: 767px) 92vw, 50vw" alt="地域のイベントで恐竜の着ぐるみを着たメンバー" loading="lazy" decoding="async"><figcaption><span class="o1">朝の打ち合わせ</span><span class="o2">地域イベントで恐竜に</span></figcaption></figure>
+          <figure class="rv"><img class="on" src="assets/img/g-pipe.webp" srcset="assets/img/g-pipe-800.webp 800w, assets/img/g-pipe.webp 1200w" sizes="(max-width: 767px) 92vw, 50vw" alt="道路の下で配管をつなぐ作業" loading="lazy" decoding="async"><img class="off" src="assets/img/g-off-uni.webp" srcset="assets/img/g-off-uni-800.webp 800w, assets/img/g-off-uni.webp 1200w" sizes="(max-width: 767px) 92vw, 50vw" alt="ユニフォーム姿でイベントに参加するメンバー" loading="lazy" decoding="async"><figcaption><span class="o1">水道管をつなぐ</span><span class="o2">地域のイベントに参加</span></figcaption></figure>
+          <figure class="rv"><img class="on" src="assets/img/g-tool.webp" srcset="assets/img/g-tool-800.webp 800w, assets/img/g-tool.webp 1200w" sizes="(max-width: 767px) 92vw, 50vw" alt="専用工具で配管をつなぐ作業" loading="lazy" decoding="async"><img class="off" src="assets/img/g-off-golf.webp" alt="ゴルフを楽しむメンバー" loading="lazy" decoding="async" style="object-position:center 30%"><figcaption><span class="o1">専用工具で配管を</span><span class="o2">休日はゴルフ</span></figcaption></figure>
+          <figure class="rv"><img class="on" src="assets/img/g-meeting2.webp" srcset="assets/img/g-meeting2-800.webp 800w, assets/img/g-meeting2.webp 1200w" sizes="(max-width: 767px) 92vw, 50vw" alt="資料を囲んでの打ち合わせ" loading="lazy" decoding="async"><img class="off" src="assets/img/g-off-fest.webp" srcset="assets/img/g-off-fest-800.webp 800w, assets/img/g-off-fest.webp 1168w" sizes="(max-width: 767px) 92vw, 50vw" alt="お祭りで笑顔のメンバー" loading="lazy" decoding="async"><figcaption><span class="o1">現場ごとに作戦会議</span><span class="o2">お祭りも全力</span></figcaption></figure>
+          <figure class="rv"><img class="on" src="assets/img/g-snow.webp" srcset="assets/img/g-snow-800.webp 800w, assets/img/g-snow.webp 1200w" sizes="(max-width: 767px) 92vw, 50vw" alt="除雪作業" loading="lazy" decoding="async"><img class="off" src="assets/img/g-off-bike.webp" srcset="assets/img/g-off-bike-800.webp 800w, assets/img/g-off-bike.webp 1108w" sizes="(max-width: 767px) 92vw, 50vw" alt="イベントで白バイにまたがるメンバー" loading="lazy" decoding="async" style="object-position:center 30%"><figcaption><span class="o1">雪の日は除雪へ</span><span class="o2">イベントで白バイ体験</span></figcaption></figure>
+          <figure class="rv"><img class="on" src="assets/img/g-pump.webp" srcset="assets/img/g-pump-800.webp 800w, assets/img/g-pump.webp 1200w" sizes="(max-width: 767px) 92vw, 50vw" alt="ポンプの材料検査" loading="lazy" decoding="async"><img class="off" src="assets/img/g-off-dog.webp" srcset="assets/img/g-off-dog-800.webp 800w, assets/img/g-off-dog.webp 1024w" sizes="(max-width: 767px) 92vw, 50vw" alt="愛犬を抱くメンバー" loading="lazy" decoding="async" style="object-position:center 30%"><figcaption><span class="o1">材料の検査</span><span class="o2">愛犬との休日</span></figcaption></figure>
         </div>
       </div>
 
@@ -426,7 +427,7 @@
         <p class="lead-copy rv">あなたに技術を教える人たち</p>
         <p class="body-copy rv">社長と専務は兄弟で、若い頃から現場に入り、営業・積算・工事・引き渡しまでを一貫して担当しながら仕事を覚えてきました。現場も、会社の経営も知っている先輩たちです。</p>
         <div class="people__grid">
-          <article class="person rv"><div class="person__photo"><img src="assets/img/g-president.jpg" alt="代表取締役社長 中村武史" loading="lazy"></div><span class="person__role">代表取締役社長</span><h4 class="person__name">中村 武史<span class="en">TAKESHI</span></h4><p class="person__meta">40代 ／ 入社24年 ／ 4代目</p><p class="person__comment">「現場で一番大事なのは、分からないことをそのままにしないこと。聞いてくれたら、何度でも教えます。」</p></article>
+          <article class="person rv"><div class="person__photo"><img src="assets/img/g-president.webp" alt="代表取締役社長 中村武史" loading="lazy" decoding="async"></div><span class="person__role">代表取締役社長</span><h4 class="person__name">中村 武史<span class="en">TAKESHI</span></h4><p class="person__meta">40代 ／ 入社24年 ／ 4代目</p><p class="person__comment">「現場で一番大事なのは、分からないことをそのままにしないこと。聞いてくれたら、何度でも教えます。」</p></article>
           <article class="person rv"><div class="person__photo person__photo--todo"><div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg>PHOTO COMING SOON</div></div><span class="person__role">専務取締役</span><h4 class="person__name">中村 篤史<span class="en">ATSUSHI</span></h4><p class="person__meta">40代 ／ 入社22年</p><p class="person__comment">「最初は道具の名前からで大丈夫。一緒に現場に出て、できることを一つずつ増やしていきましょう。」</p></article>
           <article class="person rv"><div class="person__photo person__photo--todo"><div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg>PHOTO COMING SOON</div></div><span class="person__role">工事部長</span><h4 class="person__name">中道 潔崇<span class="en">KIYOTAKA</span></h4><p class="person__meta">50代 ／ 入社31年</p><p class="person__comment">「30年やっていても、同じ現場は一つもない。だから面白い。経験はぜんぶ伝えるつもりです。」</p></article>
         </div>
@@ -441,7 +442,7 @@
     <div class="wrap">
       <div class="sec-head rv"><p class="sec-head__en">GROWTH</p><p class="sec-head__jp"><span class="n">06</span><span class="t">未経験から、図面も描ける配管工へ。</span></p></div>
       <div class="growth__top">
-        <div class="growth__img rv"><img class="px" src="assets/img/g-training.jpg" alt="研修会場で配管の技術を学ぶ様子" width="1800" height="1350" loading="lazy"></div>
+        <div class="growth__img rv"><img class="px" src="assets/img/g-training.webp" srcset="assets/img/g-training-800.webp 800w, assets/img/g-training.webp 1200w" sizes="(max-width: 767px) 92vw, 50vw" alt="研修会場で配管の技術を学ぶ様子" width="1800" height="1350" loading="lazy" decoding="async"></div>
         <div>
           <p class="lead-copy rv">最初は、先輩のサポートから。<br>一つずつ、できることを<br class="sp">増やしていく。</p>
           <p class="body-copy rv">入社してすぐに一人で現場を任されることはありません。まずは先輩の手元で、道具や材料の名前、作業の流れを覚えるところから。現場ごとに先輩と行動しながら、少しずつ任される仕事が増えていきます。</p>
@@ -452,11 +453,11 @@
         <div class="road__body">
           <div class="road__line" aria-hidden="true"><i></i><span class="road__drop"><svg viewBox="0 0 24 30"><path d="M12 1C12 1 2 13 2 19a10 10 0 0 0 20 0C22 13 12 1 12 1z"/></svg><b>YOU</b></span></div>
           <ol class="road__list">
-            <li class="rstep"><span class="rstep__dot"></span><div class="rstep__card"><div class="rstep__img"><img src="assets/img/g-meeting.jpg" alt="朝の打ち合わせ" loading="lazy"></div><div class="rstep__body"><p class="rstep__when"><span>START</span>入社直後</p><h4>先輩の手元から、スタート。</h4><p>熟練の先輩について、道具や材料の名前を覚えるところから。</p><span class="rstep__get">GET!　作業着・ヘルメット</span></div></div></li>
-            <li class="rstep"><span class="rstep__dot"></span><div class="rstep__card"><div class="rstep__img"><img src="assets/img/g-road.jpg" alt="工事車両が並ぶ山あいの現場" loading="lazy"></div><div class="rstep__body"><p class="rstep__when"><span>1 MONTH</span>1か月後</p><h4>工事車両で、現場へ。</h4><p>工事車両を運転して、先輩と一緒に現場へ向かいます。</p><span class="rstep__get">GET!　現場への運転</span></div></div></li>
-            <li class="rstep"><span class="rstep__dot"></span><div class="rstep__card"><div class="rstep__img"><img src="assets/img/g-tool.jpg" alt="専用工具で配管をつなぐ手元" loading="lazy"></div><div class="rstep__body"><p class="rstep__when"><span>6 MONTHS</span>半年後</p><h4>自分の工具を持つ。</h4><p>使う材料を自分で判断できるように。自分専用の工具を持ちます。</p><span class="rstep__get">GET!　マイ工具</span></div></div></li>
-            <li class="rstep"><span class="rstep__dot"></span><div class="rstep__card"><div class="rstep__img"><img src="assets/img/g-pipe.jpg" alt="道路の下で配管をつなぐ作業" loading="lazy"></div><div class="rstep__body"><p class="rstep__when"><span>1 YEAR</span>1年後</p><h4>一人で、配管作業。</h4><p>一人で配管作業ができるように。任される仕事がぐっと増えます。</p><span class="rstep__get">GET!　ひとり立ち</span></div></div></li>
-            <li class="rstep rstep--goal"><span class="rstep__dot"></span><div class="rstep__card"><div class="rstep__img"><img src="assets/img/g-meeting2.jpg" alt="資料を囲んでの打ち合わせ" loading="lazy"></div><div class="rstep__body"><p class="rstep__when"><span>3 YEARS</span>3年後</p><h4>図面から、配管まで。</h4><p>図面の作成から配管作業まで、一人でできる配管工に。</p><span class="rstep__get">GOAL!　一人前の配管工</span></div></div></li>
+            <li class="rstep"><span class="rstep__dot"></span><div class="rstep__card"><div class="rstep__img"><img src="assets/img/g-meeting.webp" srcset="assets/img/g-meeting-800.webp 800w, assets/img/g-meeting.webp 1200w" sizes="(max-width: 767px) 92vw, 50vw" alt="朝の打ち合わせ" loading="lazy" decoding="async"></div><div class="rstep__body"><p class="rstep__when"><span>START</span>入社直後</p><h4>先輩の手元から、スタート。</h4><p>熟練の先輩について、道具や材料の名前を覚えるところから。</p><span class="rstep__get">GET!　作業着・ヘルメット</span></div></div></li>
+            <li class="rstep"><span class="rstep__dot"></span><div class="rstep__card"><div class="rstep__img"><img src="assets/img/g-road.webp" srcset="assets/img/g-road-800.webp 800w, assets/img/g-road.webp 1200w" sizes="(max-width: 767px) 92vw, 50vw" alt="工事車両が並ぶ山あいの現場" loading="lazy" decoding="async"></div><div class="rstep__body"><p class="rstep__when"><span>1 MONTH</span>1か月後</p><h4>工事車両で、現場へ。</h4><p>工事車両を運転して、先輩と一緒に現場へ向かいます。</p><span class="rstep__get">GET!　現場への運転</span></div></div></li>
+            <li class="rstep"><span class="rstep__dot"></span><div class="rstep__card"><div class="rstep__img"><img src="assets/img/g-tool.webp" srcset="assets/img/g-tool-800.webp 800w, assets/img/g-tool.webp 1200w" sizes="(max-width: 767px) 92vw, 50vw" alt="専用工具で配管をつなぐ手元" loading="lazy" decoding="async"></div><div class="rstep__body"><p class="rstep__when"><span>6 MONTHS</span>半年後</p><h4>自分の工具を持つ。</h4><p>使う材料を自分で判断できるように。自分専用の工具を持ちます。</p><span class="rstep__get">GET!　マイ工具</span></div></div></li>
+            <li class="rstep"><span class="rstep__dot"></span><div class="rstep__card"><div class="rstep__img"><img src="assets/img/g-pipe.webp" srcset="assets/img/g-pipe-800.webp 800w, assets/img/g-pipe.webp 1200w" sizes="(max-width: 767px) 92vw, 50vw" alt="道路の下で配管をつなぐ作業" loading="lazy" decoding="async"></div><div class="rstep__body"><p class="rstep__when"><span>1 YEAR</span>1年後</p><h4>一人で、配管作業。</h4><p>一人で配管作業ができるように。任される仕事がぐっと増えます。</p><span class="rstep__get">GET!　ひとり立ち</span></div></div></li>
+            <li class="rstep rstep--goal"><span class="rstep__dot"></span><div class="rstep__card"><div class="rstep__img"><img src="assets/img/g-meeting2.webp" srcset="assets/img/g-meeting2-800.webp 800w, assets/img/g-meeting2.webp 1200w" sizes="(max-width: 767px) 92vw, 50vw" alt="資料を囲んでの打ち合わせ" loading="lazy" decoding="async"></div><div class="rstep__body"><p class="rstep__when"><span>3 YEARS</span>3年後</p><h4>図面から、配管まで。</h4><p>図面の作成から配管作業まで、一人でできる配管工に。</p><span class="rstep__get">GOAL!　一人前の配管工</span></div></div></li>
           </ol>
         </div>
       </div>
@@ -472,7 +473,7 @@
   <!-- ============ 一言の帯 1 ============ -->
   <aside class="voice" aria-label="社長のひとこと">
     <div class="wrap voice__in">
-      <div class="voice__face rv"><img src="assets/img/g-president.jpg" alt="" loading="lazy"></div>
+      <div class="voice__face rv"><img src="assets/img/g-president.webp" alt="" loading="lazy" decoding="async"></div>
       <blockquote class="voice__q rv"><p>分からないことは、<br class="sp">そのままにしない。<br><mark>聞いてくれたら、何度でも教えます。</mark></p><cite>代表取締役社長　中村 武史</cite></blockquote>
     </div>
   </aside>
@@ -482,7 +483,7 @@
     <div class="wrap">
       <div class="sec-head rv"><p class="sec-head__en">CAREER</p><p class="sec-head__jp"><span class="n">07</span><span class="t">その先の、キャリア。</span></p></div>
       <div class="career__top">
-        <div class="career__img rv"><img class="px" src="assets/img/g-dig.jpg" alt="掘った穴の中で水道管を扱う社員" loading="lazy"></div>
+        <div class="career__img rv"><img class="px" src="assets/img/g-dig.webp" srcset="assets/img/g-dig-800.webp 800w, assets/img/g-dig.webp 1108w" sizes="(max-width: 767px) 92vw, 50vw" alt="掘った穴の中で水道管を扱う社員" loading="lazy" decoding="async"></div>
         <p class="body-copy rv">技術と資格を身につけると、任される仕事の幅が広がります。職人として現場を極める道も、施工管理として現場全体を動かす道もあります。</p>
       </div>
       <div class="ladder">
@@ -526,7 +527,7 @@
     <div class="wrap">
       <div class="sec-head rv"><p class="sec-head__en">PROJECTS</p><p class="sec-head__jp"><span class="n">08</span><span class="t">施工実績</span></p></div>
       <div class="proj">
-        <figure class="proj__a rv"><div class="img"><img src="assets/img/g-station.jpg" alt="敦賀駅前広場の芝生で散水している様子" loading="lazy"></div><span class="cat">公共工事</span><h4>敦賀駅前広場 散水設備工事</h4><p>駅前広場の芝生に水をまく設備の工事です。</p></figure>
+        <figure class="proj__a rv"><div class="img"><img src="assets/img/g-station.webp" srcset="assets/img/g-station-800.webp 800w, assets/img/g-station.webp 1200w" sizes="(max-width: 767px) 92vw, 50vw" alt="敦賀駅前広場の芝生で散水している様子" loading="lazy" decoding="async"></div><span class="cat">公共工事</span><h4>敦賀駅前広場 散水設備工事</h4><p>駅前広場の芝生に水をまく設備の工事です。</p></figure>
         <div class="proj__b rv awards">
           <p class="awards__head"><span class="en">AWARDS</span>敦賀市 優良工事表彰</p>
           <ul class="awards__list">
@@ -536,9 +537,9 @@
           </ul>
           <p class="note" style="margin:16px 0 0">平成13年からの表彰は、下の一覧をご覧ください。</p>
         </div>
-        <figure class="proj__c rv"><div class="img"><img src="assets/img/g-award.jpg" alt="敦賀市優良工事表彰式の記念撮影" loading="lazy"></div><span class="cat">表彰式</span><h4>敦賀市 優良工事表彰式</h4></figure>
-        <figure class="proj__d rv"><div class="img"><img src="assets/img/g-building.jpg" alt="建物内に施工された配管" loading="lazy"></div><span class="cat">施設</span><h4>施設の設備配管工事</h4></figure>
-        <figure class="proj__e rv"><div class="img"><img src="assets/img/g-reform.jpg" alt="リフォーム後の住宅のキッチン" loading="lazy"></div><span class="cat">住宅</span><h4>キッチン・水まわりリフォーム</h4></figure>
+        <figure class="proj__c rv"><div class="img"><img src="assets/img/g-award.webp" srcset="assets/img/g-award-800.webp 800w, assets/img/g-award.webp 1200w" sizes="(max-width: 767px) 92vw, 50vw" alt="敦賀市優良工事表彰式の記念撮影" loading="lazy" decoding="async"></div><span class="cat">表彰式</span><h4>敦賀市 優良工事表彰式</h4></figure>
+        <figure class="proj__d rv"><div class="img"><img src="assets/img/g-building.webp" srcset="assets/img/g-building-800.webp 800w, assets/img/g-building.webp 1200w" sizes="(max-width: 767px) 92vw, 50vw" alt="建物内に施工された配管" loading="lazy" decoding="async"></div><span class="cat">施設</span><h4>施設の設備配管工事</h4></figure>
+        <figure class="proj__e rv"><div class="img"><img src="assets/img/g-reform.webp" srcset="assets/img/g-reform-800.webp 800w, assets/img/g-reform.webp 1200w" sizes="(max-width: 767px) 92vw, 50vw" alt="リフォーム後の住宅のキッチン" loading="lazy" decoding="async"></div><span class="cat">住宅</span><h4>キッチン・水まわりリフォーム</h4></figure>
       </div>
       <ul class="proj__list rv">
         <li><span class="y">R8</span><span>敦賀市 優良工事表彰（水道部門）　天筒系配水管路改良工事</span></li>
@@ -565,7 +566,7 @@
   <section class="sec" id="workstyle" data-section="10_workstyle">
     <div class="wrap">
       <div class="sec-head rv"><p class="sec-head__en">WORK <span class="o">STYLE</span></p><p class="sec-head__jp"><span class="n">09</span><span class="t">働き方・職場環境</span></p></div>
-      <figure class="ws__photo rv"><img class="px" src="assets/img/g-office.jpg" alt="敦賀市津内町にある中村住設の本社" loading="lazy"><figcaption>毎朝ここに集まって、各現場へ。<small>本社（敦賀市津内町）</small></figcaption></figure>
+      <figure class="ws__photo rv"><img class="px" src="assets/img/g-office.webp" srcset="assets/img/g-office-800.webp 800w, assets/img/g-office.webp 1200w" sizes="(max-width: 767px) 92vw, 50vw" alt="敦賀市津内町にある中村住設の本社" loading="lazy" decoding="async"><figcaption>毎朝ここに集まって、各現場へ。<small>本社（敦賀市津内町）</small></figcaption></figure>
       <div class="hcal">
         <div class="hcal__head rv">
           <p class="hcal__en">HOLIDAY CALENDAR</p>
@@ -611,7 +612,7 @@
     <div class="wrap">
       <div class="sec-head rv"><p class="sec-head__en">MESSAGE</p><p class="sec-head__jp"><span class="n">10</span><span class="t">代表メッセージ</span></p></div>
       <div class="message__grid">
-        <div class="message__photo rv"><div class="img"><img src="assets/img/g-president.jpg" alt="代表取締役社長 中村武史" loading="lazy"></div><div class="message__sign"><small>株式会社中村住設 代表取締役社長</small><b>中村 武史</b></div></div>
+        <div class="message__photo rv"><div class="img"><img src="assets/img/g-president.webp" alt="代表取締役社長 中村武史" loading="lazy" decoding="async"></div><div class="message__sign"><small>株式会社中村住設 代表取締役社長</small><b>中村 武史</b></div></div>
         <div class="message__body">
           <h3 class="rv">敦賀のライフラインを、<br>次の世代へつなぎたい。</h3>
           <ol class="msg3">
@@ -718,10 +719,10 @@
   <aside class="waiting" aria-label="先輩たちからのひとこと">
     <div class="wrap">
       <ul class="waiting__faces rv">
-        <li><img src="assets/img/g-president.jpg" alt="代表取締役社長 中村武史" loading="lazy"><span>社長</span></li>
+        <li><img src="assets/img/g-president.webp" alt="代表取締役社長 中村武史" loading="lazy" decoding="async"><span>社長</span></li>
         <li class="is-none"><span class="init" aria-hidden="true">A</span><span>専務</span></li>
         <li class="is-none"><span class="init" aria-hidden="true">K</span><span>工事部長</span></li>
-        <li class="is-team"><img src="assets/img/g-team.jpg" alt="中村住設のメンバー" loading="lazy"><span>チーム</span></li>
+        <li class="is-team"><img src="assets/img/g-team.webp" srcset="assets/img/g-team-800.webp 800w, assets/img/g-team.webp 1200w" sizes="(max-width: 767px) 92vw, 50vw" alt="中村住設のメンバー" loading="lazy" decoding="async"><span>チーム</span></li>
       </ul>
       <p class="waiting__copy rv">いっしょに働ける日を、<br class="sp"><mark>チーム全員で待ってます。</mark></p>
       <p class="waiting__sub rv">最後まで読んでくれて、ありがとうございました。</p>
