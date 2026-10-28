@@ -266,3 +266,44 @@ details.msg-more[open] .job__toggle i::after { transform: none; }
 
 /* 新しい町のイラストは町と配管が右寄りなので、スマホでは右寄りに切り取る */
 @media (max-width: 767px) { .town__img img { object-position: 78% 60%; } }
+
+/* v9：配管ラインなどの演出は、文字や写真より奥に通す */
+.interlude { z-index: 2; }
+
+/* v9：敦賀マップ（中村住設から配管が伸び、水が届いた建物に明かりがつく） */
+.tcount { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 4px 10px; margin: 22px 0 0; }
+.tcount__label { font-size: 13px; font-weight: 700; line-height: 1.4; letter-spacing: .06em; padding-bottom: 12px; }
+.tcount__n { font-family: var(--en); font-weight: 800; font-size: clamp(64px, 9vw, 96px); line-height: .9; color: var(--aqua); letter-spacing: -.02em; }
+.tcount__u { font-size: 20px; font-weight: 700; padding-bottom: 8px; }
+.tcount__plus { flex-basis: 100%; font-size: 13px; color: var(--muted); }
+.tmap { position: relative; aspect-ratio: 1 / .92; border-radius: 28px; overflow: visible; }
+.tmap__land { position: absolute; inset: 0; width: 100%; height: 100%; border-radius: 28px; box-shadow: 0 14px 34px rgba(15,29,58,.1); }
+.tmap__bay { position: absolute; left: 50%; top: 6%; transform: translateX(-50%); font-family: var(--en); font-weight: 700; font-size: 11px; letter-spacing: .4em; color: #fff; opacity: .8; white-space: nowrap; }
+.tmap__pipes { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; }
+.tmap__pipes path { fill: none; stroke-linecap: round; stroke-linejoin: round; }
+.tmap__pipes .s { stroke: #9fbccd; stroke-width: 9; }
+.tmap__pipes .b { stroke: #eaf2f6; stroke-width: 5; }
+.tmap__pipes .f { stroke: var(--aqua); stroke-width: 5; transition: stroke-dashoffset .8s cubic-bezier(.45, 0, .2, 1); }
+.tbld { position: absolute; left: var(--x); top: var(--y); width: clamp(64px, 18%, 104px); transform: translate(-50%, -62%); display: flex; flex-direction: column; align-items: center; gap: 2px; z-index: 1; }
+.tbld img { width: 100%; height: auto; aspect-ratio: 1; object-fit: contain; filter: grayscale(1) opacity(.45) drop-shadow(0 4px 4px rgba(15,29,58,.12)); transform: scale(.86); transition: filter .6s, transform .7s cubic-bezier(.34, 1.7, .64, 1); }
+.tbld b { position: relative; font-size: 11px; font-weight: 700; letter-spacing: .04em; white-space: nowrap; padding: 3px 9px; border-radius: 999px; background: #fff; color: var(--muted); box-shadow: 0 3px 8px rgba(15,29,58,.08); transition: background-color .4s, color .4s; }
+.tbld::after { content: ""; position: absolute; left: 50%; top: 52%; width: 70%; aspect-ratio: 1; border-radius: 50%; border: 2px solid var(--aqua); transform: translate(-50%, -50%) scale(.3); opacity: 0; pointer-events: none; }
+.tbld.is-on img { filter: grayscale(0) opacity(1) drop-shadow(0 6px 6px rgba(15,29,58,.18)); transform: scale(1); }
+.tbld.is-on b { background: var(--aqua); color: #fff; }
+.tbld.is-on::after { animation: tring 1s ease-out; }
+.tbld--home img { filter: grayscale(0) opacity(1) drop-shadow(0 6px 6px rgba(15,29,58,.18)); transform: scale(1); }
+.tbld--home b { background: var(--ink); color: #fff; }
+@keyframes tring { 0% { opacity: .9; transform: translate(-50%, -50%) scale(.3); } 100% { opacity: 0; transform: translate(-50%, -50%) scale(1.5); } }
+.tmap__note { position: absolute; right: 4px; bottom: -26px; }
+@media (max-width: 767px) {
+  .tbld { width: 21%; }
+  .tbld b { font-size: 10px; padding: 2px 7px; }
+  .tmap__pipes .s { stroke-width: 7; } .tmap__pipes .b, .tmap__pipes .f { stroke-width: 4; }
+}
+@media (prefers-reduced-motion: reduce) { .tbld img, .tmap__pipes .f { transition: none; } .tbld.is-on::after { animation: none; } }
+/* PCでは、左の一覧を読んでいるあいだ地図が見え続けるようにする */
+@media (min-width: 960px) { .places { align-items: start; } .tmap { position: sticky; top: 120px; } }
+/* 配管のゴール（LINEで相談）は、フォームの下の余白に出す。文字にかぶらないよう余白を広げる */
+.contact { padding-bottom: clamp(140px, 14vw, 190px); }
+/* スマホで地図がはみ出さないように */
+.places > * { min-width: 0; }

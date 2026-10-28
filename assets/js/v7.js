@@ -216,3 +216,68 @@
   }, { rootMargin: '0px 0px -30% 0px' });
   io.observe(document.querySelector('.wflow'));
 })();
+
+// v9：敦賀マップ。中村住設から各施設へ配管を伸ばし、水が届いた建物から明かりをつける
+(function () {
+  var map = document.querySelector('.tmap');
+  if (!map) return;
+  var Sound = window.LPSound || { play: function () {} };
+  var svg = map.querySelector('.tmap__pipes');
+  var home = map.querySelector('.tbld--home');
+  var blds = [].slice.call(map.querySelectorAll('.tbld:not(.tbld--home)'));
+  var NS = 'http://www.w3.org/2000/svg', fills = [], done = false;
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function pos(el) {
+    var cs = getComputedStyle(el), W = map.clientWidth, H = map.clientHeight;
+    return [parseFloat(cs.getPropertyValue('--x')) / 100 * W, parseFloat(cs.getPropertyValue('--y')) / 100 * H];
+  }
+  // 横に出てから縦に曲がる、角の丸い配管
+  function route(a, b) {
+    var r = Math.min(18, Math.abs(b[0] - a[0]) / 2, Math.abs(b[1] - a[1]) / 2);
+    var sx = Math.sign(b[0] - a[0]), sy = Math.sign(b[1] - a[1]);
+    return 'M' + a[0] + ' ' + a[1] + ' H' + (b[0] - sx * r) + ' Q' + b[0] + ' ' + a[1] + ' ' + b[0] + ' ' + (a[1] + sy * r) + ' V' + b[1];
+  }
+  function build() {
+    var W = map.clientWidth, H = map.clientHeight;
+    svg.setAttribute('viewBox', '0 0 ' + W + ' ' + H);
+    svg.innerHTML = ''; fills = [];
+    var h = pos(home);
+    blds.forEach(function (b, i) {
+      var d = route(h, pos(b));
+      ['s', 'b', 'f'].forEach(function (c) {
+        var p = document.createElementNS(NS, 'path'); p.setAttribute('d', d); p.setAttribute('class', c); svg.appendChild(p);
+        if (c === 'f') {
+          var L = p.getTotalLength(); p.style.strokeDasharray = L;
+          p.style.strokeDashoffset = b.classList.contains('is-on') ? 0 : L;
+          fills[i] = p;
+        }
+      });
+    });
+  }
+  function run() {
+    if (done) return; done = true;
+    blds.forEach(function (b, i) {
+      var t = reduce ? 0 : 500 + i * 650;
+      setTimeout(function () { if (fills[i]) fills[i].style.strokeDashoffset = 0; }, t);
+      setTimeout(function () { b.classList.add('is-on'); Sound.play(i === blds.length - 1 ? 'get' : 'drop'); }, reduce ? 0 : t + 750);
+    });
+  }
+  // 見出しの数字：見えたら0から数える
+  var n = document.querySelector('.tcount__n');
+  if (n && 'IntersectionObserver' in window && !reduce) {
+    var to = +n.getAttribute('data-to');
+    var nio = new IntersectionObserver(function (es) {
+      if (!es[0].isIntersecting) return; nio.disconnect();
+      for (var k = 1; k <= to; k++) (function (k) { setTimeout(function () { n.textContent = k; if (k === to) Sound.play('pop'); }, k * 160); })(k);
+    }, { rootMargin: '0px 0px -20% 0px' });
+    nio.observe(n);
+  } else if (n) n.textContent = n.getAttribute('data-to');
+  build();
+  window.addEventListener('resize', function () { clearTimeout(map._t); map._t = setTimeout(build, 200); });
+  if (!('IntersectionObserver' in window)) { run(); return; }
+  var io = new IntersectionObserver(function (es) {
+    es.forEach(function (e) { if (e.isIntersecting) { io.disconnect(); run(); } });
+  }, { rootMargin: '0px 0px -30% 0px' });
+  io.observe(map);
+})();

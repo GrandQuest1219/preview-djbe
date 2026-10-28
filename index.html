@@ -239,8 +239,9 @@
 
       <div class="places">
         <div>
-          <p class="lead-copy rv">あなたが知っている、<br>あの場所にも。</p>
-          <p class="body-copy rv" style="margin-top:16px">中村住設がこれまで設備工事などで関わってきた、敦賀の施設の一部です。</p>
+          <p class="lead-copy rv">敦賀の人なら、<br>きっと一度は<br class="sp">入ったことがある建物。</p>
+          <p class="tcount rv"><span class="tcount__label">敦賀市内の<br>主な施設</span><b class="tcount__n" data-to="6">0</b><span class="tcount__u">か所</span><span class="tcount__plus">＋ 公民館・市営住宅など</span></p>
+          <p class="body-copy rv" style="margin-top:16px">中村住設がこれまで設備工事などで関わってきた、敦賀の施設の一部です。どの建物にも、私たちの通した配管があります。</p>
           <ul class="places__list rv">
             <li><b>敦賀市役所</b><span>新庁舎の機械設備工事に、共同企業体の一員として参加</span></li>
             <li><b>敦賀赤レンガ倉庫</b><span>改修機械工事（敦賀市より表彰）</span></li>
@@ -252,22 +253,45 @@
           </ul>
           <div class="episode rv"><span class="en">EPISODE</span><p>夜間、道路で漏水が発生したときのこと。市役所からの連絡を受けてすぐに修繕し、事故を未然に防ぎました。住宅の漏水にも、できるだけ早く駆けつけて復旧しています。</p></div>
         </div>
-        <div class="map rv" aria-label="敦賀市内で関わった施設のイメージマップ">
-          <svg class="land" viewBox="0 0 500 460" aria-hidden="true">
-            <path d="M0 0H500V120C440 110 400 150 360 190C320 230 280 200 240 210C190 222 160 180 110 186C60 192 30 160 0 170Z" fill="#cfe6f0"/>
-            <path d="M0 170C30 160 60 192 110 186C160 180 190 222 240 210C280 200 320 230 360 190C400 150 440 110 500 120V460H0Z" fill="#fbf9f4"/>
-            <path d="M40 300C140 280 220 330 330 310S470 270 500 290" fill="none" stroke="#e5ddcd" stroke-width="2" stroke-dasharray="1 7" stroke-linecap="round"/>
-            <path d="M250 460C255 400 240 330 262 250" fill="none" stroke="#e5ddcd" stroke-width="2" stroke-dasharray="1 7" stroke-linecap="round"/>
+        <!-- v9：中村住設から配管が伸びて、水が届いた建物から明かりがつく地図 -->
+        <div class="tmap rv" aria-label="敦賀市内で関わった施設のイメージマップ">
+          <svg class="tmap__land" viewBox="0 0 500 460" preserveAspectRatio="none" aria-hidden="true">
+            <defs>
+              <filter id="felt" x="-5%" y="-5%" width="110%" height="110%">
+                <feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" seed="4" result="n"/>
+                <feColorMatrix in="n" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .07 0" result="g"/>
+                <feComposite in="g" in2="SourceGraphic" operator="in" result="t"/>
+                <feMerge><feMergeNode in="SourceGraphic"/><feMergeNode in="t"/></feMerge>
+              </filter>
+              <filter id="felt-sh" x="-5%" y="-5%" width="110%" height="120%"><feDropShadow dx="0" dy="3" stdDeviation="2.5" flood-color="#0f1d3a" flood-opacity=".14"/></filter>
+            </defs>
+            <rect width="500" height="460" fill="#f6f1e7" filter="url(#felt)"/>
+            <g filter="url(#felt-sh)">
+              <path d="M0 0H500V96C450 86 410 128 372 162C330 200 290 176 246 188C196 202 162 160 112 168C64 176 30 146 0 154Z" fill="#1f4f8a" filter="url(#felt)"/>
+              <path d="M0 0H500V70C450 62 404 100 366 130C326 162 288 142 246 152C198 164 166 128 116 134C66 140 32 116 0 122Z" fill="#2c6cb0" filter="url(#felt)"/>
+              <path d="M0 0H500V40C440 36 400 66 360 90C320 114 286 98 246 106C200 116 170 88 120 92C70 96 36 78 0 82Z" fill="#7fb6df" filter="url(#felt)"/>
+            </g>
+            <g filter="url(#felt-sh)">
+              <path d="M0 230C30 214 52 236 70 260C86 282 74 330 92 360C106 386 84 430 60 460H0Z" fill="#9cc3e4" filter="url(#felt)"/>
+              <path d="M0 300C22 290 40 316 46 340C54 370 40 420 24 460H0Z" fill="#5b93c9" filter="url(#felt)"/>
+              <path d="M500 214C470 204 446 232 440 262C432 300 452 340 440 380C430 414 452 446 470 460H500Z" fill="#9cc3e4" filter="url(#felt)"/>
+              <path d="M500 290C480 286 466 312 468 340C470 374 486 420 496 460H500Z" fill="#5b93c9" filter="url(#felt)"/>
+            </g>
+            <path d="M232 460C238 400 222 330 246 260C256 230 250 204 246 188" fill="none" stroke="#9cc3e4" stroke-width="7" stroke-linecap="round" filter="url(#felt)"/>
+            <path d="M60 300C150 284 226 320 330 304S440 280 470 290" fill="none" stroke="#e6dcc8" stroke-width="2" stroke-dasharray="2 8" stroke-linecap="round"/>
+            <path d="M150 460C160 400 170 330 196 250" fill="none" stroke="#e6dcc8" stroke-width="2" stroke-dasharray="2 8" stroke-linecap="round"/>
+            <g fill="none" stroke="#fff" stroke-width="1.4" stroke-linecap="round" opacity=".55"><path d="M60 40q8-5 16 0t16 0"/><path d="M300 58q8-5 16 0t16 0"/><path d="M420 30q8-5 16 0t16 0"/><path d="M170 112q8-5 16 0t16 0"/></g>
           </svg>
-          <span class="map__bay" style="left:40%;top:12%">TSURUGA BAY</span>
-          <span class="pin" style="left:76%;top:44%"><i></i><b>赤レンガ倉庫</b></span>
-          <span class="pin" style="left:56%;top:56%"><i></i><b>氣比神宮</b></span>
-          <span class="pin pin--home" style="left:40%;top:64%"><i></i><b>中村住設</b></span>
-          <span class="pin" style="left:66%;top:70%"><i></i><b>市役所</b></span>
-          <span class="pin" style="left:50%;top:80%"><i></i><b>敦賀駅前広場</b></span>
-          <span class="pin" style="left:18%;top:76%"><i></i><b>敦賀高校</b></span>
-          <span class="pin" style="left:26%;top:90%"><i></i><b>原子力工学研究所</b></span>
-          <span class="note" style="position:absolute;right:0;bottom:-24px">※位置は目安のイメージです</span>
+          <span class="tmap__bay">TSURUGA BAY</span>
+          <svg class="tmap__pipes" aria-hidden="true"></svg>
+          <div class="tbld tbld--home" style="--x:42%;--y:60%"><img src="assets/img/map-home.webp" alt="" width="400" height="400" loading="lazy"><b>中村住設</b></div>
+          <div class="tbld" style="--x:80%;--y:40%"><img src="assets/img/map-brick.webp" alt="" width="400" height="400" loading="lazy"><b>赤レンガ倉庫</b></div>
+          <div class="tbld" style="--x:58%;--y:38%"><img src="assets/img/map-shrine.webp" alt="" width="400" height="400" loading="lazy"><b>氣比神宮</b></div>
+          <div class="tbld" style="--x:78%;--y:72%"><img src="assets/img/map-cityhall.webp" alt="" width="400" height="400" loading="lazy"><b>市役所</b></div>
+          <div class="tbld" style="--x:54%;--y:88%"><img src="assets/img/map-station.webp" alt="" width="400" height="400" loading="lazy"><b>敦賀駅前広場</b></div>
+          <div class="tbld" style="--x:18%;--y:44%"><img src="assets/img/map-school.webp" alt="" width="400" height="400" loading="lazy"><b>敦賀高校</b></div>
+          <div class="tbld" style="--x:22%;--y:84%"><img src="assets/img/map-lab.webp" alt="" width="400" height="400" loading="lazy"><b>原子力工学研究所</b></div>
+          <span class="note tmap__note">※位置は目安のイメージです</span>
         </div>
       </div>
 

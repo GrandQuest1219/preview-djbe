@@ -313,11 +313,19 @@
     var y0 = document.querySelector('.hero + .marquee').getBoundingClientRect().top + window.scrollY - top0 - 30;
     var pts = [[right, y0]], side = 'right';
     document.querySelectorAll('main > section.sec, main > section.contact').forEach(function (sec) {
-      var y = sec.getBoundingClientRect().top + window.scrollY - top0 + (mobile ? 40 : 70);
+      // 横に渡る管は、セクション上の余白（文字のない所）を通す
+      var pad = parseFloat(getComputedStyle(sec).paddingTop) || 100;
+      var y = sec.getBoundingClientRect().top + window.scrollY - top0 + pad * 0.4;
       pts.push([side === 'right' ? right : left, y]);
       side = side === 'right' ? 'left' : 'right';
       pts.push([side === 'right' ? right : left, y]);
     });
+    // ページの一番下まで管を伸ばし、最後はフォームの下の余白（文字のない所）を通って中央で終わる
+    var contact = document.querySelector('main > section.contact');
+    var padB = contact ? parseFloat(getComputedStyle(contact).paddingBottom) || 80 : 80;
+    var yEnd = H - padB * 0.5;
+    pts.push([side === 'right' ? right : left, yEnd]);
+    pts.push([Math.round(W * (mobile ? .2 : .36)), yEnd]);
     var d = roundPath(pts, mobile ? 30 : 70);
     [pShell, pBg, pFg, pFlow, pMask].forEach(function (p) { p.setAttribute('d', d); });
     maskEl.setAttribute('x', 0); maskEl.setAttribute('y', 0); maskEl.setAttribute('width', W); maskEl.setAttribute('height', H);
@@ -334,6 +342,8 @@
     var top0 = main.getBoundingClientRect().top + window.scrollY;
     var y = window.scrollY + window.innerHeight * .6 - top0, len = 0;
     for (var i = 0; i < samples.length; i++) { if (samples[i][1] <= y) len = samples[i][0]; }
+    // 最後までスクロールしたら、管の終点まで水を届ける
+    if (window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 4) len = total;
     pFg.style.strokeDashoffset = total - len;
     pMask.style.strokeDashoffset = total - len;   // 水の流れ（ハイライト）は、水が届いた所だけに出す
     for (var j = 0; j < joints.length; j++) {
