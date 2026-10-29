@@ -35,8 +35,6 @@
 </script>
 </head>
 <body>
-
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
 <style>
   /* 確認用プレビューの帯（本番には入れない） */
   .pv-bar { position: fixed; top: 0; left: 0; right: 0; z-index: 200; height: 30px; display: flex; align-items: center; justify-content: center; gap: 10px; padding: 0 16px; background: #0f1d3a; color: #fff; font: 700 12px/1.2 "Noto Sans JP", "Hiragino Sans", "Yu Gothic", sans-serif; letter-spacing: .04em; white-space: nowrap; overflow: hidden; }
@@ -47,6 +45,8 @@
   @media (max-width: 480px) { .pv-bar .pv-sub { display: none; } }
 </style>
 <div class="pv-bar" role="note"><b>制作中のプレビュー</b><span class="pv-sub">LINE・フォームはまだつながっていません</span></div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
     <!-- 水たまり・しずくのような有機的な形 -->
     <path id="b1" d="M412 38c96 34 158 122 150 222-9 112-62 196-170 232-118 40-252 22-330-62C-14 344-14 222 50 132 124 28 286-8 412 38z"/>
