@@ -81,10 +81,9 @@
   function placeGoal() {
     if (!pFg || !goal || !pFg.getTotalLength) return;
     var len = pFg.getTotalLength(); if (!len) return;
-    var pt = pFg.getPointAtLength(len), W = main.clientWidth;
+    // 管の終点＝中村住設の建物の足元
+    var pt = pFg.getPointAtLength(len);
     goal.style.left = pt.x + 'px'; goal.style.top = pt.y + 'px';
-    goal.classList.toggle('is-left', pt.x < W / 2);
-    goal.classList.toggle('is-right', pt.x >= W / 2);
   }
   function checkGoal() {
     if (!pFg || !goal) return;

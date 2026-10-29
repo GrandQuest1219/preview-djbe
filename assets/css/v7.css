@@ -311,3 +311,44 @@ details.msg-more[open] .job__toggle i::after { transform: none; }
 /* 軽量化：止まっているとき・画面の外にあるときは、くり返しの動きを止める */
 .pipe.is-idle .pipe__flow { animation-play-state: paused; }
 .is-offscreen, .is-offscreen *, .is-offscreen *::before, .is-offscreen *::after { animation-play-state: paused !important; }
+
+/* v10：配管ラインのスタート（浄水場）とゴール（中村住設） */
+.psrc { position: absolute; z-index: 1; left: 0; top: 0; width: 130px; transform: translate(-50%, calc(-100% + 14px)); pointer-events: none; }
+.psrc img { display: block; width: 100%; height: auto; filter: drop-shadow(0 8px 10px rgba(15,29,58,.14)); }
+.psrc__tag { position: absolute; left: 50%; top: 0; transform: translate(-50%, -100%); white-space: nowrap; font-size: 11px; font-weight: 700; letter-spacing: .06em; padding: 4px 10px; border-radius: 999px; background: var(--ink); color: #fff; }
+.psrc__drops { position: absolute; left: 50%; bottom: 10px; width: 0; height: 0; }
+.psrc__drops i { position: absolute; left: 0; bottom: 0; width: 7px; height: 9px; border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%; background: var(--aqua); opacity: 0; }
+.psrc.is-flowing .psrc__drops i { animation: splash 1.3s ease-out infinite; }
+.psrc.is-flowing .psrc__drops i:nth-child(2) { animation-delay: .4s; }
+.psrc.is-flowing .psrc__drops i:nth-child(3) { animation-delay: .8s; }
+@keyframes splash { 0% { opacity: 0; transform: translate(0, 0) scale(.6); } 20% { opacity: .9; } 100% { opacity: 0; transform: translate(34px, -26px) scale(1); } }
+.pipe.is-idle ~ .psrc .psrc__drops i { animation-play-state: paused; }
+
+.pgoal { --hw: 120px; flex-direction: row; align-items: flex-end; gap: 12px; transform: translate(calc(var(--hw) * -.5), calc(-100% + 12px)) !important; transition: none; pointer-events: auto; }
+.pgoal__home { position: relative; flex: none; width: var(--hw); }
+.pgoal__home img { display: block; width: 100%; height: auto; filter: grayscale(.8) brightness(.75); opacity: .7; transition: filter .8s, opacity .8s; }
+.pgoal.is-goal .pgoal__home img { filter: grayscale(0) brightness(1) drop-shadow(0 0 16px rgba(43,159,214,.55)); opacity: 1; }
+.pgoal .pgoal__ring { left: 15%; right: auto; top: auto; bottom: 4px; width: 70%; height: 22px; margin: 0; border-radius: 50%; }
+.pgoal.is-goal .pgoal__ring { animation: pring 2s ease-out .4s infinite; }
+@keyframes pring { 0% { transform: scale(.6); opacity: 1; } 100% { transform: scale(1.8); opacity: 0; } }
+.pgoal__body { display: flex; flex-direction: column; align-items: flex-start; gap: 6px; padding-bottom: 16px; }
+.pgoal__name { color: #fff; font-size: 13px; font-weight: 700; letter-spacing: .04em; white-space: nowrap; }
+.pgoal__tag, .pgoal__name, .pgoal__btn { opacity: 0; transform: translateY(8px) scale(.9); transform-origin: left bottom; transition: opacity .5s, transform .7s cubic-bezier(.34, 1.7, .64, 1); }
+.pgoal.is-goal .pgoal__tag, .pgoal.is-goal .pgoal__name, .pgoal.is-goal .pgoal__btn { opacity: 1; transform: none; }
+.pgoal.is-goal .pgoal__name { transition-delay: .15s; } .pgoal.is-goal .pgoal__btn { transition-delay: .3s; }
+.contact { padding-bottom: clamp(230px, 22vw, 280px); }
+@media (max-width: 767px) {
+  .psrc { width: 78px; }
+  .psrc__tag { font-size: 10px; padding: 3px 8px; }
+  .pgoal { --hw: 86px; gap: 8px; }
+  .pgoal__name { font-size: 12px; }
+  .pgoal__btn { height: 42px; font-size: 13px; padding: 0 14px 0 12px; }
+}
+@media (prefers-reduced-motion: reduce) { .psrc.is-flowing .psrc__drops i, .pgoal.is-goal .pgoal__ring { animation: none; } }
+/* スタートの浄水場は、トップ写真より手前に出し、ラベルは建物の左に置いて写真にかぶらないようにする */
+.psrc { z-index: 3; width: 110px; }
+.psrc__tag { left: -6px; top: 46%; transform: translate(-100%, -50%); }
+@media (max-width: 767px) { .psrc { width: 70px; } }
+/* ゴール前から「ここがゴール」と分かるように、建物とGOALの札は最初から見せておく */
+.pgoal__home img { filter: grayscale(.4) brightness(.9); opacity: .9; }
+.pgoal .pgoal__tag { opacity: .85; transform: none; }

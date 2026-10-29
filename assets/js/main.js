@@ -268,6 +268,7 @@
   var maskEl = pipe.querySelector('#pipe-mask'), jointsG = pipe.querySelector('.pipe__joints');
   var SVGNS = 'http://www.w3.org/2000/svg';
   var samples = [], total = 0, joints = [];
+  var srcEl = document.querySelector('.psrc');
 
   // 管の曲がり角の前後と、まっすぐな区間の一定間隔に継手を置く
   function buildJoints(mobile) {
@@ -311,7 +312,11 @@
     var left = inset, right = W - inset;
     var top0 = main.getBoundingClientRect().top + window.scrollY;
     var y0 = document.querySelector('.hero + .marquee').getBoundingClientRect().top + window.scrollY - top0 - 30;
-    var pts = [[right, y0]], side = 'right';
+    // スタートは浄水場の建物の足元。そこから右へ出て、ページの端を下っていく
+    var src = document.querySelector('.psrc');
+    var sx = Math.round(right - (mobile ? 70 : 150));
+    if (src) { src.style.left = sx + 'px'; src.style.top = y0 + 'px'; }
+    var pts = [[sx, y0], [right, y0]], side = 'right';
     document.querySelectorAll('main > section.sec, main > section.contact').forEach(function (sec) {
       // 横に渡る管は、セクション上の余白（文字のない所）を通す
       var pad = parseFloat(getComputedStyle(sec).paddingTop) || 100;
@@ -323,9 +328,13 @@
     // ページの一番下まで管を伸ばし、最後はフォームの下の余白（文字のない所）を通って中央で終わる
     var contact = document.querySelector('main > section.contact');
     var padB = contact ? parseFloat(getComputedStyle(contact).paddingBottom) || 80 : 80;
-    var yEnd = H - padB * 0.5;
+    // ゴールは中村住設の建物の足元（建物の絵の下に水が入っていく）
+    // フォームの下端から一定の距離に置く（GOALの建物と吹き出しがフォームにかぶらないように）
+    var boxes = document.querySelector('.contact__boxes');
+    var yEnd = boxes ? boxes.getBoundingClientRect().bottom + window.scrollY - top0 + 150 : H - padB * 0.3;
+    yEnd = Math.min(yEnd, H - 24);
     pts.push([side === 'right' ? right : left, yEnd]);
-    pts.push([Math.round(W * (mobile ? .2 : .36)), yEnd]);
+    pts.push([Math.round(mobile ? 64 : W * .36), yEnd]);
     var d = roundPath(pts, mobile ? 30 : 70);
     [pShell, pBg, pFg, pFlow, pMask].forEach(function (p) { p.setAttribute('d', d); });
     maskEl.setAttribute('x', 0); maskEl.setAttribute('y', 0); maskEl.setAttribute('width', W); maskEl.setAttribute('height', H);
@@ -352,6 +361,8 @@
     }
     var p = pFg.getPointAtLength(len); head.setAttribute('cx', p.x); head.setAttribute('cy', p.y);
     head.style.opacity = len > 2 && len < total - 2 ? 1 : 0;
+    // 水が出発したら、浄水場から水しぶきを出す
+    if (srcEl) srcEl.classList.toggle('is-flowing', len > 2);
   }
   // 水の流れは、スクロールしている間だけ動かす（止まって見ているときは描き直さず、パソコンやスマホの負担を減らす）
   var idleTimer = null;
