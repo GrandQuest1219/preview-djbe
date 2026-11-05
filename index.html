@@ -716,16 +716,16 @@
         <div class="cbox rv">
           <span class="cbox__label">FORM</span>
           <h3>フォームで問い合わせる</h3>
-          <form class="form" novalidate>
+          <form class="form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate><input type="hidden" name="form-name" value="contact"><p hidden><label>入力しないでください <input name="bot-field"></label></p><input type="hidden" name="topics" value="">
             <div><label for="f-name">お名前<span class="req">必須</span></label><input type="text" id="f-name" name="name" autocomplete="name" required></div>
             <div><label for="f-age">年齢<span class="opt">任意</span></label><input type="text" id="f-age" name="age" inputmode="numeric"></div>
             <div><label for="f-contact">電話番号またはメールアドレス<span class="req">必須</span></label><input type="text" id="f-contact" name="contact" required></div>
             <div><span style="display:block;margin-bottom:8px;font-size:12px;font-weight:700;letter-spacing:.08em">ご用件<span class="opt">複数選択可</span></span>
               <div class="checks"><label><input type="checkbox" name="topic" value="仕事内容を聞きたい">仕事内容を聞きたい</label><label><input type="checkbox" name="topic" value="見学したい">見学したい</label><label><input type="checkbox" name="topic" value="応募したい">応募したい</label><label><input type="checkbox" name="topic" value="その他">その他</label></div></div>
             <div><label for="f-msg">ご質問など<span class="opt">任意</span></label><textarea id="f-msg" name="message"></textarea></div>
-            <label class="agree"><input type="checkbox" required> <span><a href="http://nakajyu.net/privacy/" target="_blank" rel="noopener">個人情報の取り扱い</a>に同意する</span></label>
+            <label class="agree"><input type="checkbox" name="agree" value="同意する" required> <span><a href="http://nakajyu.net/privacy/" target="_blank" rel="noopener">個人情報の取り扱い</a>に同意する</span></label>
             <button type="submit" class="btn btn--ink" data-cta="form" data-cta-pos="bottom">送信する<span class="arr"></span></button>
-            <p class="form__msg" role="status">（制作中プレビュー）フォームの送信先は公開時に設定します。現在は送信されません。</p>
+            <p class="form__msg" role="status">送信しました。お問い合わせありがとうございます。担当者より、2〜3日以内にご連絡いたします。</p>
           </form>
         </div>
       </div>
